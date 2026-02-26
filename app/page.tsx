@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="relative min-h-dvh overflow-hidden">
       {/* Gradient background (below everything) */}
@@ -15,7 +15,7 @@ export default function Home() {
             우리들의 작은 모임
           </p>
           <span className="pointer-events-none absolute left-1/2 top-[1.35em] h-2 w-[170px] -translate-x-1/2 rounded-full bg-yellow-200/80" />
-          <Image src="/star.svg" alt="" width={22} height={22} className="pointer-events-none absolute -left-7 -top-3 animate-twinkle"/>
+          <Image src="/icons/star.svg" alt="" width={22} height={22} className="pointer-events-none absolute -left-7 -top-3 animate-twinkle"/>
         </div>
 
         <Image src="/logo.png" alt="GROUP MISSION" width={1536} height={1024} className="w-[90%] max-w-[1200px]" priority/>
