@@ -20,9 +20,9 @@ export default function LoginForm() {
 
   const [showPw, setShowPw] = useState(false);
 
-  const { register, handleSubmit, setValue, formState: { isValid } } = useForm<LoginFormType>({
+  const { register, handleSubmit, setValue, formState: { errors, isValid, isSubmitting } } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
-    mode: "onSubmit",
+    mode: "onChange",
     defaultValues: { userId: "", password: "", rememberId: false }
   });
 
@@ -35,7 +35,7 @@ export default function LoginForm() {
     }
   }, [setValue]);
 
-  const onLoginSubmit = (data: LoginFormType) => {
+  const onLoginSubmit = async (data: LoginFormType) => {
     if(data.rememberId) localStorage.setItem(STORAGE_KEY, data.userId);
     else localStorage.removeItem(STORAGE_KEY);
 
@@ -54,6 +54,7 @@ export default function LoginForm() {
           autoComplete="userId"
           className="h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-900 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
         />
+        {errors.userId && (<p className="mt-2 text-xs text-red-500">{errors.userId.message}</p>)}
       </div>
 
       {/* password */}
@@ -71,11 +72,13 @@ export default function LoginForm() {
             type="button"
             onClick={() => setShowPw((v) => !v)}
             className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-zinc-500 hover:text-zinc-900"
+            aria-label="비밀번호 보기 토글"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={showPw ? "/icons/eye-off.svg" : "/icons/eye-on.svg"} alt="비밀번호 보기 토글" className="h-5 w-5"/>
           </button>
         </div>
+        {errors.password && (<p className="mt-2 text-xs text-red-500">{errors.password.message}</p>)}
       </div>
 
       {/* Remember + Forgot */}
@@ -94,7 +97,11 @@ export default function LoginForm() {
         </Link>
       </div>
 
-      <button type="submit" disabled={!isValid} className="mt-2 cursor-pointer inline-flex h-12 w-full items-center justify-center rounded-lg bg-emerald-300 font-semibold text-emerald-950 shadow-[0_10px_25px_rgba(16,185,129,0.18)] transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.99]">
+      <button
+        type="submit"
+        disabled={!isValid || isSubmitting}
+        className="mt-2 cursor-pointer inline-flex h-12 w-full items-center justify-center rounded-lg bg-emerald-300 font-semibold text-emerald-950 shadow-[0_10px_25px_rgba(16,185,129,0.18)] transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.99]"
+      >
         로그인
       </button>
     </form>
