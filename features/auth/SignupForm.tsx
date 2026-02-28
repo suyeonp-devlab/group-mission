@@ -47,10 +47,10 @@ export default function SignupForm() {
         <input
           {...register("userId")}
           placeholder="아이디 입력"
-          autoComplete="userId"
+          autoComplete="username"
           className="h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-900 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
         />
-        {errors.userId && (<p className="mt-2 text-xs text-red-500">{errors.userId.message}</p>)}
+        {errors.userId && <p className="mt-2 text-xs text-red-500">{errors.userId.message}</p>}
       </div>
 
       {/* password */}
@@ -74,7 +74,7 @@ export default function SignupForm() {
             <img src={showPw ? "/icons/eye-off.svg" : "/icons/eye-on.svg"} alt="비밀번호 보기 토글" className="h-5 w-5"/>
           </button>
         </div>
-        {errors.password && (<p className="mt-2 text-xs text-red-500">{errors.password.message}</p>)}
+        {errors.password && <p className="mt-2 text-xs text-red-500">{errors.password.message}</p>}
       </div>
 
       {/* passwordConfirm */}
@@ -98,7 +98,7 @@ export default function SignupForm() {
             <img src={showPwConfirm ? "/icons/eye-off.svg" : "/icons/eye-on.svg"} alt="비밀번호 확인 보기 토글" className="h-5 w-5"/>
           </button>
         </div>
-        {errors.passwordConfirm && (<p className="mt-2 text-xs text-red-500">{errors.passwordConfirm.message}</p>)}
+        {errors.passwordConfirm && <p className="mt-2 text-xs text-red-500">{errors.passwordConfirm.message}</p>}
       </div>
 
       {/* nickname */}
@@ -111,7 +111,7 @@ export default function SignupForm() {
           autoComplete="nickname"
           className="h-12 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-900 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
         />
-        {errors.nickname && (<p className="mt-2 text-xs text-red-500">{errors.nickname.message}</p>)}
+        {errors.nickname && <p className="mt-2 text-xs text-red-500">{errors.nickname.message}</p>}
       </div>
 
       {/* pinCode */}

@@ -53,7 +53,7 @@ export default function CodeInput({
   return (
     <div className="text-left">
       <label className="mb-2 block text-sm font-medium text-zinc-800">
-        회원가입 PIN 코드 <span className="text-xs text-zinc-500">(숫자 {maxLength}자리)</span>
+        PIN 코드 <span className="text-xs text-zinc-500">(숫자 {maxLength}자리)</span>
       </label>
 
       {/* Wrapper */}

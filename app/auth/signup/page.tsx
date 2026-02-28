@@ -5,7 +5,7 @@ export default function SignupPage() {
   return (
     <main className="relative min-h-dvh overflow-hidden">
       {/* Background (below everything) */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-emerald-50 via-sky-50 to-white" />
+      <div className="absolute inset-0 -z-20 bg-linear-to-br from-emerald-50 via-sky-50 to-white" />
 
       {/* Content */}
       <div className="mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10 pt-10 text-center">
