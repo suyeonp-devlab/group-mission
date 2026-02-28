@@ -5,8 +5,8 @@ import { z } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import StepIndicator, {StepItem} from "@/components/indicator/StepIndicator";
-import ChangePasswordAccountForm from "@/features/auth/ChangePasswordAccountForm";
-import ChangePasswordResetForm from "@/features/auth/ChangePasswordResetForm";
+import FindPasswordFormOne from "@/features/auth/FindPasswordFormOne";
+import FindPasswordFormTwo from "@/features/auth/FindPasswordFormTwo";
 
 /**
  *  Step:
@@ -20,7 +20,7 @@ const stepInfo: StepItem[] = [
   { title: "비밀번호 재설정", desc: "새 비밀번호를 설정하세요." }
 ];
 
-const changePasswordSchema = z.object({
+const findPasswordSchema = z.object({
   userId: z.string().trim().min(1, "아이디를 입력해주세요."),
   pinCode: z.string().trim().regex(/^\d{6}$/, "PIN 코드는 숫자 6자리입니다."),
   newPassword: z.string().min(6, "비밀번호는 최소 6자 이상이어야 합니다."),
@@ -31,14 +31,14 @@ const changePasswordSchema = z.object({
   path: ["newPasswordConfirm"],
 });
 
-export type ChangePasswordFormType = z.infer<typeof changePasswordSchema>;
+export type FindPasswordFormType = z.infer<typeof findPasswordSchema>;
 
-export default function ChangePasswordForm() {
+export default function FindPasswordForm() {
 
   const [step, setStep] = useState<Step>(1);
 
-  const methods = useForm<ChangePasswordFormType>({
-    resolver: zodResolver(changePasswordSchema),
+  const methods = useForm<FindPasswordFormType>({
+    resolver: zodResolver(findPasswordSchema),
     mode: "onChange",
     shouldUnregister: false, // Maintain value even when moving step
     defaultValues: { userId: "", pinCode: "", newPassword: "", newPasswordConfirm: "" },
@@ -62,8 +62,8 @@ export default function ChangePasswordForm() {
     <FormProvider {...methods}>
       <div className="text-left">
         <StepIndicator steps={stepInfo} activeStep={step} />
-        {step === 1 && <ChangePasswordAccountForm onNext={next} />}
-        {step === 2 && <ChangePasswordResetForm onSubmit={submit} />}
+        {step === 1 && <FindPasswordFormOne onNext={next} />}
+        {step === 2 && <FindPasswordFormTwo onSubmit={submit} />}
       </div>
     </FormProvider>
   );

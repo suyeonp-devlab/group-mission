@@ -92,7 +92,7 @@ export default function LoginForm() {
           아이디 저장
         </label>
 
-        <Link href="/auth/change-password" className="text-sm font-medium text-emerald-700 hover:text-emerald-800">
+        <Link href="/auth/find-password" className="text-sm font-medium text-emerald-700 hover:text-emerald-800">
           비밀번호 찾기
         </Link>
       </div>

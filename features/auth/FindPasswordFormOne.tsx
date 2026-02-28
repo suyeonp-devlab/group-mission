@@ -2,15 +2,15 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 import CodeInput from "@/components/form/CodeInput";
-import type { ChangePasswordFormType } from "@/features/auth/ChangePasswordForm";
+import type { FindPasswordFormType } from "@/features/auth/FindPasswordForm";
 
-interface ChangePasswordAccountFormProps {
+interface FindPasswordFormOneProps {
   onNext: () => void;
 }
 
-export default function ChangePasswordAccountForm({ onNext } : ChangePasswordAccountFormProps) {
+export default function FindPasswordFormOne({ onNext } : FindPasswordFormOneProps) {
 
-  const { register, control, watch, formState: { errors } } = useFormContext<ChangePasswordFormType>();
+  const { register, control, watch, formState: { errors } } = useFormContext<FindPasswordFormType>();
 
   const userId = watch("userId");
   const pinCode = watch("pinCode");

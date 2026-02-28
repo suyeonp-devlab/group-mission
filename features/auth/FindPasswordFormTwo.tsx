@@ -1,19 +1,19 @@
 "use client";
 
 import { useFormContext } from "react-hook-form";
-import type { ChangePasswordFormType } from "@/features/auth/ChangePasswordForm";
+import type { FindPasswordFormType } from "@/features/auth/FindPasswordForm";
 import { useState } from "react";
 
-interface ChangePasswordResetFormProps {
+interface FindPasswordFormTwoProps {
   onSubmit: () => void;
 }
 
-export default function ChangePasswordResetForm({ onSubmit }: ChangePasswordResetFormProps) {
+export default function FindPasswordFormTwo({ onSubmit }: FindPasswordFormTwoProps) {
 
   const [showPw, setShowPw] = useState(false);
   const [showPwConfirm, setShowPwConfirm] = useState(false);
 
-  const { register, formState: { errors, isValid, isSubmitting } } = useFormContext<ChangePasswordFormType>();
+  const { register, formState: { errors, isValid, isSubmitting } } = useFormContext<FindPasswordFormType>();
 
   return (
     <form onSubmit={(e) => {e.preventDefault(); onSubmit();}} className="space-y-4">

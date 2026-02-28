@@ -1,6 +1,6 @@
-import ChangePasswordForm from "@/features/auth/ChangePasswordForm";
+import FindPasswordForm from "@/features/auth/FindPasswordForm";
 
-export default function ChangePasswordPage() {
+export default function FindPasswordPage() {
   return (
     <main className="relative min-h-dvh overflow-hidden">
       {/* Background (below everything) */}
@@ -17,7 +17,7 @@ export default function ChangePasswordPage() {
 
         {/* Card */}
         <section className="rounded-2xl bg-white/70 p-6 shadow-sm ring-1 ring-zinc-200 backdrop-blur">
-          <ChangePasswordForm />
+          <FindPasswordForm />
         </section>
       </div>
     </main>
