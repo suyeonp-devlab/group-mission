@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { mockSignIn } from "@/lib/mockSession";
+import { useRouter } from "next/navigation";
 
 const STORAGE_KEY = "gm_saved_userid";
 
@@ -17,6 +19,8 @@ const loginSchema = z.object({
 type LoginFormType = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
+
+  const router = useRouter();
 
   const [showPw, setShowPw] = useState(false);
 
@@ -41,6 +45,9 @@ export default function LoginForm() {
 
     console.log("로그인 데이터:", data);
     // TODO 서버 연동
+    mockSignIn();
+    router.replace("/app");
+    router.refresh(); // Refresh to avoid prefetched data
   };
 
   return (
@@ -92,7 +99,7 @@ export default function LoginForm() {
           아이디 저장
         </label>
 
-        <Link href="/auth/find-password" className="text-sm font-medium text-emerald-700 hover:text-emerald-800">
+        <Link href="/find-password" className="text-sm font-medium text-emerald-700 hover:text-emerald-800">
           비밀번호 찾기
         </Link>
       </div>
