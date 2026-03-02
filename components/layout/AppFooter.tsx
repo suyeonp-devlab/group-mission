@@ -4,16 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { FOOTER_MENU } from "@/features/menu/footer.menu";
+import { FOOTER_MENU } from "@/features/layout/footer.menu";
+import { useLayout } from "@/features/layout/LayoutContext";
 
 export default function AppFooter() {
 
   const pathname = usePathname();
+  const { showFooter } = useLayout();
 
   const isActive = (href: string) => {
     if (href === "/app") return pathname === "/app";
     return pathname.startsWith(href);
   };
+
+  if (!showFooter) return null;
 
   return (
     <nav aria-label="Bottom navigation" className="fixed inset-x-0 bottom-0 z-30 border-t border-gray-200 bg-white shadow-[0_-1px_6px_rgba(0,0,0,0.05)]">

@@ -3,21 +3,24 @@
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useLayout } from "@/features/layout/LayoutContext";
 
 export default function AppHeader() {
 
   const router = useRouter();
+  const { headerTitle } = useLayout();
 
   return (
     <header className="sticky top-0 z-20 bg-white">
       <div className="mx-auto flex w-full max-w-screen-sm items-center justify-between px-4 py-3">
-        {/* Left: Logo */}
-        <div className="text-lg font-extrabold tracking-tight text-emerald-800">
-          GROUP MISSION
+        {/* Left: Page title */}
+        <div className="text-lg font-extrabold tracking-tight text-emerald-800 mt-1">
+          {headerTitle}
         </div>
 
         {/* Right: Icons */}
         <div className="flex items-center gap-2">
+          {/* Search */}
           <button
             type="button"
             aria-label="Search"
@@ -27,6 +30,17 @@ export default function AppHeader() {
             <Image src="/icons/search.svg" alt="Search" width={22} height={22} className="block" />
           </button>
 
+          {/* Chat */}
+          <button
+            type="button"
+            aria-label="Chat"
+            onClick={() => router.push("/app/chat")}
+            className="flex h-6 w-6 items-center justify-center"
+          >
+            <Image src="/icons/chat.svg" alt="Chat" width={22} height={22} className="block"/>
+          </button>
+
+          {/* Notification */}
           <button
             type="button"
             aria-label="Notifications"
