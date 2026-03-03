@@ -1,0 +1,79 @@
+"use client";
+
+import { CategoriesSearchParams, Category } from "@/features/categories/category.type";
+import { useState} from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import SearchBar from "@/components/form/SearchBar";
+import PromoBanner from "@/components/banner/PromoBanner";
+import TextTab from "@/components/tab/TextTab";
+
+interface CategoryClientProps {
+  categories: Category[];
+  selectedCategory: string;
+  initialQuery: string;
+}
+
+export default function CategoryClient({
+  categories,
+  selectedCategory,
+  initialQuery
+} : CategoryClientProps){
+
+  const router = useRouter();
+  const sp = useSearchParams();
+
+  const [q, setQ] = useState(initialQuery);
+
+  const replaceParams = (next: CategoriesSearchParams) => {
+
+    const params = new URLSearchParams(sp.toString());
+
+    if (next.categoryId !== undefined) params.set("categoryId", next.categoryId);
+    if (next.q !== undefined) params.set("q", next.q);
+
+    const nextQuery = params.toString();
+    const currentQuery = sp.toString();
+    if (nextQuery === currentQuery) return;
+
+    // Use replace to avoid stacking browser history on every small change.
+    router.replace(`/app/categories?${nextQuery}`);
+  };
+
+  return (
+    <div className="bg-white">
+      {/* Search */}
+      <SearchBar
+        value={q}
+        onChange={setQ}
+        onDebouncedChange={(v) => replaceParams({ q: v })}
+        debounceMs={350}
+        placeholder="그룹 이름으로 검색해보세요."
+      />
+
+      {/* Top Banner */}
+      <PromoBanner className="mt-4 rounded-lg shadow-sm">
+        <p className="text-xs">마음에 드는 그룹이 없다면,</p>
+        <p className="mt-2 text-xs">
+          직접 만들어서 함께 시작해볼까요?
+          <button
+            type="button"
+            onClick={() => router.push("/app/groups/new")}
+            className="relative ml-2.5 font-semibold text-yellow-200 hover:text-yellow-100 transition-colors after:absolute after:left-0 after:bottom-[1px] after:h-[5px] after:w-full after:bg-yellow-200/35 after:-z-10 after:rounded-sm"
+          >
+            그룹 만들기
+          </button>
+        </p>
+      </PromoBanner>
+
+      {/* Categories Tab */}
+      <div className="mt-3">
+        <TextTab
+          tabs={categories}
+          value={selectedCategory}
+          onChange={(v) => replaceParams({ categoryId: v })}
+        />
+      </div>
+
+    </div>
+  );
+}
