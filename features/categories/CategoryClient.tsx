@@ -6,17 +6,26 @@ import { useRouter, useSearchParams } from "next/navigation";
 import SearchBar from "@/components/form/SearchBar";
 import PromoBanner from "@/components/banner/PromoBanner";
 import TextTab from "@/components/tab/TextTab";
+import GroupExplorer from "@/features/groups/GroupExplorer";
+import { Group } from "@/features/groups/group.type";
+import { SortValue } from "@/features/ui/sort.constant";
 
 interface CategoryClientProps {
   categories: Category[];
   selectedCategory: string;
   initialQuery: string;
+  groups: Group[];
+  selectedSort: SortValue<"group">;
+  initialAvailable: "0" | "1";
 }
 
 export default function CategoryClient({
   categories,
   selectedCategory,
-  initialQuery
+  initialQuery,
+  groups,
+  selectedSort,
+  initialAvailable
 } : CategoryClientProps){
 
   const router = useRouter();
@@ -30,6 +39,8 @@ export default function CategoryClient({
 
     if (next.categoryId !== undefined) params.set("categoryId", next.categoryId);
     if (next.q !== undefined) params.set("q", next.q);
+    if (next.sort !== undefined) params.set("sort", next.sort);
+    if (next.available !== undefined) params.set("available", next.available);
 
     const nextQuery = params.toString();
     const currentQuery = sp.toString();
@@ -71,6 +82,17 @@ export default function CategoryClient({
           tabs={categories}
           value={selectedCategory}
           onChange={(v) => replaceParams({ categoryId: v })}
+        />
+      </div>
+
+      {/* Group List */}
+      <div className="mt-3">
+        <GroupExplorer
+          groups={groups}
+          sort={selectedSort}
+          onChangeSort={(v) => replaceParams({ sort: v })}
+          available={initialAvailable}
+          onToggleAvailable={(v) => replaceParams({ available: v })}
         />
       </div>
 
