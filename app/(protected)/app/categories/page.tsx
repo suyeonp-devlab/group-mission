@@ -41,7 +41,7 @@ export default async function CategoryPage({ searchParams } : {
   return (
     <>
       {/* Set the page-specific layout configuration */}
-      <LayoutConfig title="카테고리" />
+      <LayoutConfig title="카테고리" navIcon="categories" />
 
       {/* Content */}
       <CategoryClient

@@ -1,12 +1,15 @@
+import { NavIcon } from "@/features/layout/LayoutContext";
+
 type FooterMenuItem = {
-  href: string;
+  id: NavIcon
   label: string;
+  href: string;
   iconSrc: string;
 };
 
 export const FOOTER_MENU = [
-  { href: "/app/categories?categoryId=all&q=&sort=RECOMMENDED&available=0", label: "카테고리", iconSrc: "/icons/explore.svg" },
-  { href: "/app", label: "홈", iconSrc: "/icons/home.svg" },
-  { href: "/app/groups", label: "내그룹", iconSrc: "/icons/bookmarks.svg" },
-  { href: "/app/mypage", label: "마이페이지", iconSrc: "/icons/my.svg" },
+  { id: "categories", label: "카테고리", href: "/app/categories?categoryId=all&q=&sort=RECOMMENDED&available=1", iconSrc: "/icons/explore.svg" },
+  { id: "home", label: "홈", href: "/app", iconSrc: "/icons/home.svg" },
+  { id: "groups", label: "내그룹", href: "/app/groups", iconSrc: "/icons/bookmarks.svg" },
+  { id: "mypage", label: "마이페이지", href: "/app/mypage", iconSrc: "/icons/my.svg" },
 ] satisfies readonly FooterMenuItem[];

@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 
 export type HeaderVariant = "default" | "detail";
+export type NavIcon = "categories" | "home" | "groups" | "mypage";
 
 type LayoutContextValue = {
   headerTitle: string;
@@ -13,6 +14,8 @@ type LayoutContextValue = {
   setShowHeader: (show: boolean) => void;
   showFooter: boolean;
   setShowFooter: (show: boolean) => void;
+  activeNavIcon: NavIcon;
+  setActiveNavIcon: (icon: NavIcon) => void;
 };
 
 const LayoutContext = createContext<LayoutContextValue | null>(null);
@@ -24,6 +27,7 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [headerVariant, setHeaderVariant] = useState<HeaderVariant>("default");
   const [showHeader, setShowHeader] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
+  const [activeNavIcon, setActiveNavIcon] = useState<NavIcon>("home");
 
   const value = useMemo(
     () => ({
@@ -35,8 +39,10 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
       setShowHeader,
       showFooter,
       setShowFooter,
+      activeNavIcon,
+      setActiveNavIcon
     }),
-    [headerTitle, headerVariant, showHeader, showFooter]
+    [headerTitle, headerVariant, showHeader, showFooter, activeNavIcon]
   );
 
   return <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>;

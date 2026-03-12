@@ -4,7 +4,7 @@ export default function GroupPage(){
   return (
     <>
       {/* Set the page-specific layout configuration */}
-      <LayoutConfig title="내 그룹" />
+      <LayoutConfig title="내 그룹" navIcon="groups" />
       <div>내그룹페이지</div>
     </>
   );

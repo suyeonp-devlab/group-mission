@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { HeaderVariant, useLayout } from "@/features/layout/LayoutContext";
+import { HeaderVariant, NavIcon, useLayout } from "@/features/layout/LayoutContext";
 
 type LayoutConfigProps = {
   title?: string;
   headerVariant?: HeaderVariant;
   showFooter?: boolean;
   showHeader?: boolean;
+  navIcon?: NavIcon;
   resetOnUnmount?: boolean;
 };
 
@@ -16,6 +17,7 @@ const DEFAULTS = {
   headerVariant: "default" as const,
   showFooter: true,
   showHeader: true,
+  navIcon: "home" as const
 };
 
 /** Configures layout-level UI state (header, footer, title) for the current page */
@@ -24,16 +26,18 @@ export default function LayoutConfig({
   headerVariant,
   showFooter,
   showHeader,
+  navIcon,
   resetOnUnmount = true,
 }: LayoutConfigProps) {
 
-  const { setHeaderTitle, setHeaderVariant, setShowFooter, setShowHeader } = useLayout();
+  const { setHeaderTitle, setHeaderVariant, setShowFooter, setShowHeader, setActiveNavIcon } = useLayout();
 
   useEffect(() => {
     if(title !== undefined) setHeaderTitle(title);
     if(headerVariant !== undefined) setHeaderVariant(headerVariant);
     if(showFooter !== undefined) setShowFooter(showFooter);
     if(showHeader !== undefined) setShowHeader(showHeader);
+    if(navIcon !== undefined) setActiveNavIcon(navIcon);
 
     if (!resetOnUnmount) return;
 
@@ -42,8 +46,9 @@ export default function LayoutConfig({
       setHeaderVariant(DEFAULTS.headerVariant);
       setShowFooter(DEFAULTS.showFooter);
       setShowHeader(DEFAULTS.showHeader);
+      setActiveNavIcon(DEFAULTS.navIcon);
     };
-  }, [title, headerVariant, showFooter, showHeader, resetOnUnmount, setHeaderTitle, setHeaderVariant, setShowFooter, setShowHeader]);
+  }, [title, headerVariant, showFooter, showHeader, navIcon, resetOnUnmount, setHeaderTitle, setHeaderVariant, setShowFooter, setShowHeader, setActiveNavIcon]);
 
   return null;
 }
