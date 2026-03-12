@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import { X } from "lucide-react";
 
 interface PromoBannerProps {
   children: React.ReactNode;
@@ -43,7 +43,7 @@ export default function PromoBanner({
         aria-label="Close"
         className="absolute right-3 top-1 h-8 w-8 grid place-items-center hover:opacity-90 transition"
       >
-        <Image src="/icons/clear-white.svg" alt="Close" width={16} height={16} />
+        <X size={18} className="text-white" />
       </button>
     </div>
   );

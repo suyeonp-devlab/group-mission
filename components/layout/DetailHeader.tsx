@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useLayout } from "@/features/layout/LayoutContext";
+import { ArrowLeft } from "lucide-react";
 
 export default function DetailHeader() {
 
@@ -20,7 +20,7 @@ export default function DetailHeader() {
           aria-label="Back"
           className="flex h-8 w-8 items-center justify-center"
         >
-          <Image src="/icons/arrow-left.svg" alt="Back" width={22} height={22} className="block" />
+          <ArrowLeft size={20} className="text-zinc-700" />
         </button>
 
         {/* Center: Title */}

@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useLayout } from "@/features/layout/LayoutContext";
+import { Bell, MessageCircle, Search } from "lucide-react";
 
 export default function AppHeader() {
 
@@ -27,7 +27,7 @@ export default function AppHeader() {
             onClick={() => router.push("/app/search")}
             className="flex h-6 w-6 items-center justify-center"
           >
-            <Image src="/icons/search.svg" alt="Search" width={22} height={22} className="block" />
+            <Search size={20} className="text-zinc-800" />
           </button>
 
           {/* Chat */}
@@ -37,7 +37,7 @@ export default function AppHeader() {
             onClick={() => router.push("/app/chat")}
             className="flex h-6 w-6 items-center justify-center"
           >
-            <Image src="/icons/chat.svg" alt="Chat" width={22} height={22} className="block"/>
+            <MessageCircle size={19} className="text-zinc-800 scale-x-[-1] " />
           </button>
 
           {/* Notification */}
@@ -45,9 +45,9 @@ export default function AppHeader() {
             type="button"
             aria-label="Notifications"
             onClick={() => router.push("/app/notifications")}
-            className="relative flex h-6 w-6 items-center justify-center top-px"
+            className="relative flex h-6 w-6 items-center justify-center"
           >
-            <Image src="/icons/bell.svg" alt="Notifications" width={22} height={22} className="block"/>
+            <Bell size={20} className="text-zinc-800" />
             {/* TODO : 새로운 알림 존재 시 표출 */}
             <span className="absolute -top-[0.5px]  -right-1 h-1.5 w-1.5 rounded-full bg-red-500" />
           </button>

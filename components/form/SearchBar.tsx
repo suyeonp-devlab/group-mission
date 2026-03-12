@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { Search, X } from "lucide-react";
 
 interface SearchBarProps {
   value: string;
@@ -62,7 +62,7 @@ export default function SearchBar({
     <div className="flex items-center gap-2">
       <div className="relative flex-1">
         <div className="absolute left-4 top-1/2 -translate-y-1/2">
-          <Image src="/icons/search.svg" alt="Search" width={16} height={16} priority={false} className="opacity-60" />
+          <Search size={16} className="text-zinc-500" />
         </div>
 
         <input
@@ -80,7 +80,7 @@ export default function SearchBar({
             aria-label="Clear"
             className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center"
           >
-            <Image src="/icons/clear.svg" alt="Clear" width={18} height={18} priority={false} className="opacity-60 hover:opacity-100 transition" />
+            <X size={16} className="text-zinc-500" />
           </button>
         )}
       </div>
