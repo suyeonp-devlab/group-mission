@@ -4,9 +4,12 @@ import { Group } from "@/features/groups/group.type";
 import SortSelect from "@/components/form/SortSelect";
 import { SortValue } from "@/features/ui/sort.constant";
 import GroupCard from "@/features/groups/GroupCard";
+import { useEffect, useRef } from "react";
 
 interface GroupExplorerProps {
   groups: Group[];
+  hasMore: boolean;
+  onLoadMore: () => void;
   sort: SortValue<"group">;
   onChangeSort: (v: SortValue<"group">) => void;
   available: "0" | "1";
@@ -15,13 +18,34 @@ interface GroupExplorerProps {
 
 export default function GroupExplorer({
   groups,
+  hasMore,
+  onLoadMore,
   sort,
   onChangeSort,
   available,
-  onToggleAvailable
+  onToggleAvailable,
 } : GroupExplorerProps){
 
   const hasGroups = groups.length > 0;
+
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+
+  // Infinite scroll
+  useEffect(() => {
+    const target = sentinelRef.current;
+    if (!target || !hasMore) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        onLoadMore();
+      },
+      { root: null, rootMargin: "100px", threshold: 0 }
+    );
+
+    observer.observe(target);
+
+    return () => observer.disconnect();
+  }, [hasMore, onLoadMore]);
 
   return (
     <section className="mt-4">
@@ -53,11 +77,14 @@ export default function GroupExplorer({
           </div>
 
           {/* Group list */}
-          <div className="mt-5 space-y-3 pb-6">
+          <div className="mt-5 space-y-3">
             {groups.map((g) => (
               <GroupCard key={g.id} group={g} />
             ))}
           </div>
+
+          {/* Control infinite scroll */}
+          {hasMore && <div ref={sentinelRef} className="h-8" />}
         </>
       )}
     </section>

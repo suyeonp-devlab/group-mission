@@ -1,3 +1,5 @@
+import { SortValue } from "@/features/ui/sort.constant";
+
 export type GroupFrequency = "DAILY" | "WEEKLY" | "MONTHLY";
 export type GroupBadge = "ACTIVE" | "SUCCESS" | "TRENDING" | "CONSISTENT";
 
@@ -27,4 +29,26 @@ export interface Group {
   recommendedScore: number;
   achieveRate: number;
   createdAt: string;
+}
+
+export interface GetGroupsRequest {
+  categoryId?: string;
+  q?: string;
+  sort?: SortValue<"group">;
+  available?: "0" | "1";
+  page?: number;
+}
+
+export interface NormalizedGetGroupsRequest {
+  categoryId: string;
+  q: string;
+  sort: SortValue<"group">;
+  available: "0" | "1";
+  page: number;
+  pageSize: number;
+}
+
+export interface GetGroupsResponse {
+  items: Group[];
+  totalCount: number;
 }

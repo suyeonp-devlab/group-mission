@@ -37,7 +37,7 @@ export default function AppHeader() {
             onClick={() => router.push("/app/chat")}
             className="flex h-6 w-6 items-center justify-center"
           >
-            <MessageCircle size={19} className="text-zinc-800 scale-x-[-1] " />
+            <MessageCircle size={20} className="text-zinc-800 scale-x-[-1] " />
           </button>
 
           {/* Notification */}

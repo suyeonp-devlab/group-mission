@@ -1,20 +1,23 @@
 "use client";
 
-import { CategoriesSearchParams, Category } from "@/features/categories/category.type";
-import { useState} from "react";
+import { Category } from "@/features/categories/category.type";
+import { useCallback, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchBar from "@/components/form/SearchBar";
 import PromoBanner from "@/components/banner/PromoBanner";
 import TextTab from "@/components/tab/TextTab";
 import GroupExplorer from "@/features/groups/GroupExplorer";
-import { Group } from "@/features/groups/group.type";
+import { GetGroupsRequest, Group } from "@/features/groups/group.type";
 import { SortValue } from "@/features/ui/sort.constant";
+import { normalizeGetGroupsRequest } from "@/features/groups/groups.normalize";
+import { getGroups } from "@/features/groups/groups.api";
 
 interface CategoryClientProps {
   categories: Category[];
   selectedCategory: string;
   initialQuery: string;
   groups: Group[];
+  totalGroupCount: number;
   selectedSort: SortValue<"group">;
   initialAvailable: "0" | "1";
 }
@@ -24,6 +27,7 @@ export default function CategoryClient({
   selectedCategory,
   initialQuery,
   groups,
+  totalGroupCount,
   selectedSort,
   initialAvailable
 } : CategoryClientProps){
@@ -32,8 +36,13 @@ export default function CategoryClient({
   const sp = useSearchParams();
 
   const [q, setQ] = useState(initialQuery);
+  const [viewGroups, setViewGroups] = useState(groups);
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(totalGroupCount);
 
-  const replaceParams = (next: CategoriesSearchParams) => {
+  const hasMore = viewGroups.length < totalCount;
+
+  const replaceParams = (next: GetGroupsRequest) => {
 
     const params = new URLSearchParams(sp.toString());
 
@@ -48,7 +57,25 @@ export default function CategoryClient({
 
     // Use replace to avoid stacking browser history on every small change.
     router.replace(`/app/categories?${nextQuery}`);
+
+    // Scroll to top when the list is reset to the first page
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
+
+  const handleLoadMore = useCallback(async () => {
+
+    if (!hasMore) return;
+
+    const nextPage = page + 1;
+    const params = Object.fromEntries(sp.entries());
+    const normalized = normalizeGetGroupsRequest({ ...params, page: nextPage });
+
+    // TODO 서버 연동
+    const response = getGroups(normalized);
+    setViewGroups((prev) => [...prev, ...response.items]);
+    setPage(nextPage);
+    setTotalCount(response.totalCount);
+  }, [hasMore, page, sp]);
 
   return (
     <div className="bg-white">
@@ -69,7 +96,7 @@ export default function CategoryClient({
           <button
             type="button"
             onClick={() => router.push("/app/groups/new")}
-            className="relative ml-2.5 font-semibold text-yellow-200 hover:text-yellow-100 transition-colors after:absolute after:left-0 after:bottom-[1px] after:h-[5px] after:w-full after:bg-yellow-200/35 after:-z-10 after:rounded-sm"
+            className="relative ml-2.5 font-semibold text-yellow-200 hover:text-yellow-100 transition-colors after:absolute after:left-0 after:bottom-px after:h-1.25 after:w-full after:bg-yellow-200/35 after:-z-10 after:rounded-sm"
           >
             그룹 만들기
           </button>
@@ -88,14 +115,15 @@ export default function CategoryClient({
       {/* Group List */}
       <div className="mt-3">
         <GroupExplorer
-          groups={groups}
+          groups={viewGroups}
+          hasMore={hasMore}
+          onLoadMore={handleLoadMore}
           sort={selectedSort}
           onChangeSort={(v) => replaceParams({ sort: v })}
           available={initialAvailable}
           onToggleAvailable={(v) => replaceParams({ available: v })}
         />
       </div>
-
     </div>
   );
 }
