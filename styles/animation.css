@@ -7,3 +7,15 @@
 .animate-twinkle {
   animation: twinkle 1.6s ease-in-out infinite;
 }
+
+@keyframes loading-wave {
+  0%, 100% { transform: scale(0.72); opacity: 0.42; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+.loading-dot { width: 8px; height: 8px; border-radius: 9999px; background-color: rgba(255, 255, 255, 0.92); animation: loading-wave 1s ease-in-out infinite; will-change: transform, opacity; }
+.loading-dot.loading-dot-1 { animation-delay: 0s; }
+.loading-dot.loading-dot-2 { animation-delay: 0.12s; }
+.loading-dot.loading-dot-3 { animation-delay: 0.24s; }
+.loading-dot.loading-dot-4 { animation-delay: 0.36s; }
+.loading-dot.loading-dot-5 { animation-delay: 0.48s; }

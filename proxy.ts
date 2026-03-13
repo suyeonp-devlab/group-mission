@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-
-// TODO: Replace with real session cookie name (e.g., "gm_session")
-const SESSION_COOKIE = "gm_mock_session";
+import { LOGIN_COOKIE } from "@/constants/sessionConstant";
 
 export function proxy(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
-  const hasSession = !!req.cookies.get(SESSION_COOKIE);
+  const hasSession = !!req.cookies.get(LOGIN_COOKIE);
 
   const isPublicMain = pathname === "/";
   const isAuth = pathname === "/login" || pathname === "/signup" || pathname === "/find-password";

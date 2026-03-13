@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { mockSignIn } from "@/lib/mockSession";
 import { useRouter } from "next/navigation";
-
-const STORAGE_KEY = "gm_saved_userid";
+import { USERID_STORAGE_KEY } from "@/constants/sessionConstant";
+import { useAuth } from "@/features/auth/AuthContext";
 
 const loginSchema = z.object({
   userId: z.string().trim().min(1, "아이디를 입력해주세요."),
@@ -21,6 +20,7 @@ type LoginFormType = z.infer<typeof loginSchema>;
 export default function LoginForm() {
 
   const router = useRouter();
+  const { signIn } = useAuth();
 
   const [showPw, setShowPw] = useState(false);
 
@@ -32,7 +32,7 @@ export default function LoginForm() {
 
   // Saved userid mapping
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = localStorage.getItem(USERID_STORAGE_KEY);
     if (saved) {
       setValue("userId", saved);
       setValue("rememberId", true);
@@ -40,14 +40,19 @@ export default function LoginForm() {
   }, [setValue]);
 
   const onLoginSubmit = async (data: LoginFormType) => {
-    if(data.rememberId) localStorage.setItem(STORAGE_KEY, data.userId);
-    else localStorage.removeItem(STORAGE_KEY);
+    if(data.rememberId) localStorage.setItem(USERID_STORAGE_KEY, data.userId);
+    else localStorage.removeItem(USERID_STORAGE_KEY);
 
     console.log("로그인 데이터:", data);
-    // TODO 서버 연동
-    mockSignIn();
-    router.replace("/app");
-    router.refresh(); // Refresh to avoid prefetched data
+
+    try {
+      await signIn();
+      router.replace("/app");
+      router.refresh(); // Refresh to avoid prefetched data
+    } catch (error) {
+      // TODO 로그인 실패 시 ALERT 표출
+      console.log(error);
+    }
   };
 
   return (

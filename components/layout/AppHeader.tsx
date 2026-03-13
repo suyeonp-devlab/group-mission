@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useLayout } from "@/features/layout/LayoutContext";
-import { Bell, MessageCircle, Search } from "lucide-react";
+import { Bell, MessageCircle } from "lucide-react";
 
 export default function AppHeader() {
 
@@ -20,16 +20,6 @@ export default function AppHeader() {
 
         {/* Right: Icons */}
         <div className="flex items-center gap-2">
-          {/* Search */}
-          <button
-            type="button"
-            aria-label="Search"
-            onClick={() => router.push("/app/search")}
-            className="flex h-6 w-6 items-center justify-center"
-          >
-            <Search size={20} className="text-zinc-800" />
-          </button>
-
           {/* Chat */}
           <button
             type="button"
