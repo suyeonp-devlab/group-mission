@@ -11,6 +11,7 @@ import { GetGroupsRequest, Group } from "@/features/groups/group.type";
 import { SortValue } from "@/features/ui/sort.constant";
 import { normalizeGetGroupsRequest } from "@/features/groups/groups.normalize";
 import { getGroups } from "@/features/groups/groups.api";
+import ScrollToTopButton from "@/components/button/ScrollToTopButton";
 
 interface CategoryClientProps {
   categories: Category[];
@@ -124,6 +125,9 @@ export default function CategoryClient({
           onToggleAvailable={(v) => replaceParams({ available: v })}
         />
       </div>
+
+      {/* Scroll top button */}
+      <ScrollToTopButton />
     </div>
   );
 }
