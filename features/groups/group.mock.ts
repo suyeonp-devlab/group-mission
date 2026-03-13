@@ -1,4 +1,4 @@
-import { Group } from "@/features/groups/group.type";
+import { Group, MyGroupSummary } from "@/features/groups/group.type";
 
 export const MOCK_GROUPS: Group[] = [
   { id: "G202603040001", title: "물 2L 마시기", description: "매일 물 2L 마시고 체크해요.", categoryId: "01", frequency: "DAILY", memberCount: 10, maxMembers: 10, completeMember: 4, badges: ["ACTIVE", "SUCCESS"], recommendedScore: 100, achieveRate: 40, createdAt: "2026-03-01T14:32:10" },
@@ -12,3 +12,7 @@ export const MOCK_GROUPS: Group[] = [
   { id: "G202603040009", title: "월간 책 1권", description: "한 달에 책 한 권, 같이 끝내요.", categoryId: "02", frequency: "MONTHLY", memberCount: 10, maxMembers: 10, completeMember: 2, badges: ["SUCCESS"], recommendedScore: 50, achieveRate: 20, createdAt: "2026-02-19T14:32:10" },
   { id: "G202603040010", title: "주간 청소 루틴", description: "매주 한 번, 청소 인증으로 리셋!", categoryId: "06", frequency: "WEEKLY", memberCount: 3, maxMembers: 10, completeMember: 1, badges: [], recommendedScore: 70, achieveRate: 33, createdAt: "2026-02-20T14:32:10" },
 ];
+
+export const MY_GROUP_SUMMARY: MyGroupSummary = {
+  totalCount: 5, doneCount: 2, dailyCount: 2, weeklyCount: 2, monthlyCount: 1
+}

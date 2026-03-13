@@ -1,8 +1,8 @@
-import { MOCK_GROUPS } from "@/features/groups/group.mock";
-import { NormalizedGetGroupsRequest } from "@/features/groups/group.type";
+import { MOCK_GROUPS, MY_GROUP_SUMMARY } from "@/features/groups/group.mock";
+import { GetGroupsResponse, NormalizedGetGroupsRequest } from "@/features/groups/group.type";
 
 // TODO 서버 연동 (무한스크롤)
-export const getGroups = (request: NormalizedGetGroupsRequest) => {
+export const getGroups = (request: NormalizedGetGroupsRequest): GetGroupsResponse => {
 
   const { categoryId, q, sort, available, page, pageSize } = request;
 
@@ -33,3 +33,6 @@ export const getGroups = (request: NormalizedGetGroupsRequest) => {
     totalCount: filteredGroups.length
   };
 };
+
+// TODO 서버 연동
+export const getMyGroupSummary = () => MY_GROUP_SUMMARY;
