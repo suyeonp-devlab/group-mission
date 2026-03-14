@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 import { useLayout } from "@/features/layout/LayoutContext";
 import { Bell, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function AppHeader() {
 
-  const router = useRouter();
   const { headerTitle } = useLayout();
 
   return (
@@ -21,26 +20,25 @@ export default function AppHeader() {
         {/* Right: Icons */}
         <div className="flex items-center gap-2">
           {/* Chat */}
-          <button
-            type="button"
+          <Link
+            href="/app/chat"
             aria-label="Chat"
-            onClick={() => router.push("/app/chat")}
             className="flex h-6 w-6 items-center justify-center"
           >
-            <MessageCircle size={20} className="text-zinc-800 scale-x-[-1] " />
-          </button>
+            <MessageCircle size={20} className="text-zinc-800 scale-x-[-1]" />
+          </Link>
 
           {/* Notification */}
-          <button
-            type="button"
+          <Link
+            href="/app/notifications"
             aria-label="Notifications"
-            onClick={() => router.push("/app/notifications")}
             className="relative flex h-6 w-6 items-center justify-center"
           >
             <Bell size={20} className="text-zinc-800" />
+
             {/* TODO : 새로운 알림 존재 시 표출 */}
-            <span className="absolute -top-[0.5px]  -right-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-          </button>
+            <span className="absolute -top-[0.5px] -right-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+          </Link>
         </div>
       </div>
     </header>

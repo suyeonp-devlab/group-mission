@@ -84,16 +84,16 @@ export default function TextTab({
                 {t.label}
 
                 {/* underline */}
-                <span className={`absolute left-0 bottom-0 h-[2px] w-full rounded-full transition-opacity ${t.id === value ? "bg-emerald-500 opacity-100" : "opacity-0"}`} />
+                <span className={`absolute left-0 bottom-0 h-0.5 w-full rounded-full transition-opacity ${t.id === value ? "bg-emerald-500 opacity-100" : "opacity-0"}`} />
               </button>
             )}
           </div>
         </div>
 
         {/* Left fade */}
-        <div className={`pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white to-white/0 transition-opacity ${showLeftFade ? "opacity-100" : "opacity-0"}`} />
+        <div className={`pointer-events-none absolute left-0 top-0 h-full w-10 bg-linear-to-r from-white to-white/0 transition-opacity ${showLeftFade ? "opacity-100" : "opacity-0"}`} />
         {/* Right fade */}
-        <div className={`pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-white/0 transition-opacity ${showRightFade ? "opacity-100" : "opacity-0"}`} />
+        <div className={`pointer-events-none absolute right-0 top-0 h-full w-10 bg-linear-to-l from-white to-white/0 transition-opacity ${showRightFade ? "opacity-100" : "opacity-0"}`} />
       </div>
     </div>
   );

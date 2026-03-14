@@ -12,6 +12,7 @@ import { SortValue } from "@/features/ui/sort.constant";
 import { normalizeGetGroupsRequest } from "@/features/groups/groups.normalize";
 import { getGroups } from "@/features/groups/groups.api";
 import ScrollToTopButton from "@/components/button/ScrollToTopButton";
+import Link from "next/link";
 
 interface CategoryClientProps {
   categories: Category[];
@@ -94,13 +95,9 @@ export default function CategoryClient({
         <p className="text-xs">마음에 드는 그룹이 없다면,</p>
         <p className="mt-2 text-xs">
           직접 만들어서 함께 시작해볼까요?
-          <button
-            type="button"
-            onClick={() => router.push("/app/groups/new")}
-            className="relative ml-2.5 font-semibold text-yellow-200 hover:text-yellow-100 transition-colors after:absolute after:left-0 after:bottom-px after:h-1.25 after:w-full after:bg-yellow-200/35 after:-z-10 after:rounded-sm"
-          >
+          <Link href="/app/groups/new" className="relative ml-2.5 font-semibold text-yellow-200 hover:text-yellow-100 transition-colors after:absolute after:left-0 after:bottom-px after:h-1.25 after:w-full after:bg-yellow-200/35 after:-z-10 after:rounded-sm">
             그룹 만들기
-          </button>
+          </Link>
         </p>
       </PromoBanner>
 

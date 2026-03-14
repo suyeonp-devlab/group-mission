@@ -16,7 +16,10 @@ export default async function AppMainPage(){
     getGroups(normalized)
   ]);
 
-  const categories = homeData[0].status === "fulfilled" ? homeData[0].value : [];
+  // Categories: six categories excluding "all" item
+  let categories = homeData[0].status === "fulfilled" ? homeData[0].value : [];
+  categories = categories.slice(1, 7);
+
   const summary = homeData[1].status === "fulfilled" ? homeData[1].value : null;
   const { items: groups, totalCount } = homeData[2].status === "fulfilled" ? homeData[2].value : { items: [], totalCount: 0 };
 

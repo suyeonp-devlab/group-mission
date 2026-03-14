@@ -3,6 +3,7 @@
 import { Category } from "@/features/categories/category.type";
 import { Group, MyGroupSummary } from "@/features/groups/group.type";
 import SummaryDashboard from "@/features/home/SummaryDashboard";
+import HomeCategorySection from "@/features/home/HomeCategorySection";
 
 interface HomeClientProps {
   categories: Category[];
@@ -22,6 +23,9 @@ export default function HomeClient({
     <div className="bg-white">
       {/* Summary dashboard */}
       {summary && <SummaryDashboard summary={summary} />}
+
+      {/* Categories */}
+      {categories && <HomeCategorySection categories={categories} />}
     </div>
   );
 }

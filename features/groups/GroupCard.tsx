@@ -28,7 +28,7 @@ export default function GroupCard({ group } : GroupCardProps){
             {GROUP_FREQUENCY_LABEL[group.frequency]}
           </span>
 
-          {/* group badges */}
+          {/* Group badges */}
           {group.badges.map((b) => (
             <span key={b} className={`inline-flex items-center rounded-sm px-2 py-0.5 text-[11px] font-semibold ring-1 ${BADGE_CLASS[b]}`}>
               {GROUP_BADGE_LABEL[b]}
