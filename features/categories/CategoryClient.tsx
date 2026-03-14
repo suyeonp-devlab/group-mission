@@ -1,7 +1,7 @@
 "use client";
 
 import { Category } from "@/features/categories/category.type";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchBar from "@/components/form/SearchBar";
 import PromoBanner from "@/components/banner/PromoBanner";
@@ -41,6 +41,16 @@ export default function CategoryClient({
   const [viewGroups, setViewGroups] = useState(groups);
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(totalGroupCount);
+
+  useEffect(() => {
+    setQ(initialQuery);
+  }, [initialQuery]);
+
+  useEffect(() => {
+    setViewGroups(groups);
+    setPage(1);
+    setTotalCount(totalGroupCount);
+  }, [groups, totalGroupCount]);
 
   const hasMore = viewGroups.length < totalCount;
 

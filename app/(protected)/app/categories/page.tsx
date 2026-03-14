@@ -12,8 +12,6 @@ export default async function CategoryPage({ searchParams } : {
   const sp = await searchParams;
   const normalized = normalizeGetGroupsRequest(sp);
 
-  const filterKey = [normalized.categoryId, normalized.q, normalized.sort, normalized.available].join("|");
-
   // TODO 서버 연동
   const [categories, { items: groups, totalCount }] = await Promise.all([
     getGroupCategories(),
@@ -27,7 +25,7 @@ export default async function CategoryPage({ searchParams } : {
 
       {/* Content */}
       <CategoryClient
-        key={filterKey}
+        // Do not use key — it causes a remount and breaks the tab animation/interaction.
         categories={categories}
         selectedCategory={normalized.categoryId}
         initialQuery={normalized.q}
