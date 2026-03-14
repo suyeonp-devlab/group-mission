@@ -1,7 +1,9 @@
-"use client";
-
 import { Group, GROUP_BADGE_LABEL, GROUP_FREQUENCY_LABEL, GroupBadge } from "@/features/groups/group.type";
 import { Users } from "lucide-react";
+
+interface GroupCardProps {
+  group: Group;
+}
 
 const BADGE_CLASS: Record<GroupBadge, string> = {
   ACTIVE: "bg-violet-50 text-violet-700 ring-1 ring-violet-100",
@@ -9,10 +11,6 @@ const BADGE_CLASS: Record<GroupBadge, string> = {
   TRENDING: "bg-amber-50 text-amber-700 ring-1 ring-amber-100",
   CONSISTENT: "bg-rose-50 text-rose-700 ring-1 ring-rose-100",
 };
-
-interface GroupCardProps {
-  group: Group;
-}
 
 export default function GroupCard({ group } : GroupCardProps){
 

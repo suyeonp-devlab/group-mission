@@ -14,5 +14,8 @@ export const MOCK_GROUPS: Group[] = [
 ];
 
 export const MY_GROUP_SUMMARY: MyGroupSummary = {
-  totalCount: 5, doneCount: 2, dailyCount: 2, weeklyCount: 2, monthlyCount: 1
+  total: { count: 5, completed: 3 },
+  daily: { count: 4, completed: 2 },
+  weekly: { count: 0, completed: 0 },
+  monthly: { count: 1, completed: 1 }
 }

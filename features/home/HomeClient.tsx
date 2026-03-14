@@ -21,7 +21,7 @@ export default function HomeClient({
   return (
     <div className="bg-white">
       {/* Summary dashboard */}
-      {summary && <SummaryDashboard {...summary} />}
+      {summary && <SummaryDashboard summary={summary} />}
     </div>
   );
 }

@@ -55,7 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // Ensure a minimum loading duration to prevent UI flicker
       await Promise.all([
         refreshAuth(),
-        new Promise(resolve => setTimeout(resolve, 300))
+        new Promise(resolve => setTimeout(resolve, 1500))
       ]);
     } finally {
       setIsInitializing(false);
