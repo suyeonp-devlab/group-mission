@@ -1,0 +1,28 @@
+import { Group } from "@/features/groups/group.type";
+import GroupShortcutCard from "@/features/groups/GroupShortcutCard";
+
+interface GroupSectionProps {
+  groups: Group[];
+}
+
+export default function GroupSection({ groups } : GroupSectionProps){
+
+  return (
+    <section className="mt-8">
+      <div className="mb-3">
+        <h2 className="text-[15px] font-semibold tracking-tight text-zinc-900">
+          지금 인기 있는 그룹
+        </h2>
+        <p className="mt-1 text-xs text-zinc-500">
+          지금 참여가 활발한 그룹을 모아봤어요
+        </p>
+      </div>
+
+      <div className="overflow-hidden bg-white border-t border-b border-zinc-100 divide-y divide-zinc-100">
+        {groups.map((g) => (
+          <GroupShortcutCard key={g.id} group={g} />
+        ))}
+      </div>
+    </section>
+  );
+}

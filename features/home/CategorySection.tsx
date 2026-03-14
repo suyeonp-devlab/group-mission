@@ -1,11 +1,11 @@
 import { Category } from "@/features/categories/category.type";
 import CategoryShortcutCard from "@/features/categories/CategoryShortcutCard";
 
-interface HomeCategorySectionProps {
+interface CategorySectionProps {
   categories: Category[];
 }
 
-export default function HomeCategorySection({ categories } : HomeCategorySectionProps){
+export default function CategorySection({ categories } : CategorySectionProps){
 
   return (
     <section className="mt-8">

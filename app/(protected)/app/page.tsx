@@ -10,25 +10,24 @@ export default async function AppMainPage(){
   const normalized = normalizeGetGroupsRequest(groupSearchParams);
 
   // TODO 서버 연동
-  const homeData = await Promise.allSettled([
+  const [categoryRes, summaryRes, groupRes] = await Promise.allSettled([
     getGroupCategories(),
     getMyGroupSummary(),
     getGroups(normalized)
   ]);
 
   // Categories: six categories excluding "all" item
-  let categories = homeData[0].status === "fulfilled" ? homeData[0].value : [];
+  let categories = categoryRes.status === "fulfilled" ? categoryRes.value : [];
   categories = categories.slice(1, 7);
 
-  const summary = homeData[1].status === "fulfilled" ? homeData[1].value : null;
-  const { items: groups, totalCount } = homeData[2].status === "fulfilled" ? homeData[2].value : { items: [], totalCount: 0 };
+  const summary = summaryRes.status === "fulfilled" ? summaryRes.value : null;
+  const { items: groups } = groupRes.status === "fulfilled" ? groupRes.value : { items: [] };
 
   return (
     <HomeClient
       categories={categories}
       summary={summary}
       groups={groups}
-      totalGroupCount={totalCount}
     />
   );
 }

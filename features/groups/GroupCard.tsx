@@ -15,9 +15,10 @@ const BADGE_CLASS: Record<GroupBadge, string> = {
 export default function GroupCard({ group } : GroupCardProps){
 
   const isEnd = group.memberCount >= group.maxMembers;
+  const remainCount = Math.max(0, group.maxMembers - group.memberCount);
 
   return (
-    <div className={`group relative rounded-2xl border border-zinc-200/70 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-[1px] hover:shadow-md active:scale-[0.99] ${isEnd ? "opacity-80 cursor-not-allowed" : "cursor-pointer"}`}>
+    <div className={`group relative rounded-2xl border border-zinc-200/70 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-px hover:shadow-md active:scale-[0.99] ${isEnd ? "opacity-80 cursor-not-allowed" : "cursor-pointer"}`}>
       {/* Overlay */}
       {isEnd && <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[repeating-linear-gradient(135deg,rgba(0,0,0,0.035)_0px,rgba(0,0,0,0.035)_16px,transparent_16px,transparent_32px)] bg-zinc-50/60 backdrop-blur-[1px]" />}
 
@@ -42,7 +43,7 @@ export default function GroupCard({ group } : GroupCardProps){
       </div>
 
       {/* Group abstract */}
-      <h3 className="relative mt-3.5 text-[15px] font-semibold tracking-tight text-zinc-900">
+      <h3 className="relative truncate mt-3.5 text-[15px] font-semibold tracking-tight text-zinc-900">
         {group.title}
       </h3>
 
@@ -61,7 +62,7 @@ export default function GroupCard({ group } : GroupCardProps){
         </span>
 
         <span className={`font-semibold ${isEnd ? "text-zinc-400" : "text-emerald-600"}`}>
-          {isEnd ? "" : `잔여 ${Math.max(0, group.maxMembers - group.memberCount)}명`}
+          {isEnd ? "" : `잔여 ${remainCount}명`}
         </span>
       </div>
     </div>

@@ -6,6 +6,7 @@ interface CategoryShortcutCard {
 }
 
 export default function CategoryShortcutCard({ category } : CategoryShortcutCard){
+
   return(
     <Link
       href={`/app/categories?categoryId=${category.id}&q=&sort=RECOMMENDED&available=1`}
