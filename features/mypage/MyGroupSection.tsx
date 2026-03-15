@@ -58,7 +58,7 @@ export default function MyGroupsSection({
             href="/app/groups"
             className="mt-2 flex w-full items-center justify-center gap-1 rounded-md bg-zinc-50 py-3 text-sm font-semibold text-zinc-500 ring-1 ring-zinc-200 active:bg-zinc-100"
           >
-            내 그룹 자세히 보기
+            자세히 보기
             <ChevronRight size={16} className="text-zinc-400" />
           </Link>
         </div>
