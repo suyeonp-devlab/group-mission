@@ -11,7 +11,7 @@ export default function AuthGuard({children}: {
 }) {
 
   const router = useRouter();
-  const {user, isInitializing} = useAuth();
+  const { user, isInitializing } = useAuth();
 
   useEffect(() => {
     if (!isInitializing && !user) router.replace("/login");

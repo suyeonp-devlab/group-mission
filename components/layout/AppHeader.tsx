@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useLayout } from "@/features/layout/LayoutContext";
-import { Bell, MessageCircle } from "lucide-react";
+import { Bell } from "lucide-react";
 import Link from "next/link";
 
 export default function AppHeader() {
@@ -19,15 +19,6 @@ export default function AppHeader() {
 
         {/* Right: Icons */}
         <div className="flex items-center gap-2">
-          {/* Chat */}
-          <Link
-            href="/app/chat"
-            aria-label="Chat"
-            className="flex h-6 w-6 items-center justify-center"
-          >
-            <MessageCircle size={20} className="text-zinc-800 scale-x-[-1]" />
-          </Link>
-
           {/* Notification */}
           <Link
             href="/app/notifications"
@@ -37,7 +28,7 @@ export default function AppHeader() {
             <Bell size={20} className="text-zinc-800" />
 
             {/* TODO : 새로운 알림 존재 시 표출 */}
-            <span className="absolute -top-[0.5px] -right-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+            <span className="absolute -top-[0.5px] -right-1 h-1.5 w-1.5 rounded-full bg-rose-500" />
           </Link>
         </div>
       </div>

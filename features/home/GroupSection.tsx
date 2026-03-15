@@ -1,7 +1,7 @@
 import { Group } from "@/features/groups/group.type";
 import GroupShortcutCard from "@/features/groups/GroupShortcutCard";
 import Link from "next/link";
-import {ChevronRight} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 interface GroupSectionProps {
   groups: Group[];
@@ -27,10 +27,10 @@ export default function GroupSection({ groups } : GroupSectionProps){
 
         <Link
           href="/app/categories?categoryId=all&q=&sort=RECOMMENDED&available=1"
-          className="flex items-center justify-center gap-1 py-3 text-sm font-semibold text-zinc-500 bg-zinc-50 border border-zinc-100 rounded-sm"
+          className="flex items-center justify-center gap-1 py-3 text-sm font-semibold text-zinc-500 bg-zinc-50 border-t border-zinc-100 active:bg-zinc-100"
         >
           인기 그룹 더보기
-          <ChevronRight size={16} className="text-zinc-500" />
+          <ChevronRight size={16} className="text-zinc-400" />
         </Link>
       </div>
     </section>

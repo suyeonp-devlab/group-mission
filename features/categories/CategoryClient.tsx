@@ -8,7 +8,7 @@ import PromoBanner from "@/components/banner/PromoBanner";
 import TextTab from "@/components/tab/TextTab";
 import GroupExplorer from "@/features/groups/GroupExplorer";
 import { GetGroupsRequest, Group } from "@/features/groups/group.type";
-import { SortValue } from "@/features/ui/sort.constant";
+import { SortValue } from "@/constants/sortConstant";
 import { normalizeGetGroupsRequest } from "@/features/groups/groups.normalize";
 import { getGroups } from "@/features/groups/groups.api";
 import ScrollToTopButton from "@/components/button/ScrollToTopButton";

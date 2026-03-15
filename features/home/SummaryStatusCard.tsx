@@ -1,6 +1,6 @@
 import { CircleCheckBig } from "lucide-react";
-import { getMissionStatus } from "@/lib/commonUtil";
-import { MissionStatus } from "@/features/groups/group.type";
+import { getSummaryStatus } from "@/lib/commonUtil";
+import { SummaryStatus } from "@/features/groups/group.type";
 
 interface SummaryStatusCardProps {
   label: string;
@@ -8,7 +8,7 @@ interface SummaryStatusCardProps {
   completed: number;
 }
 
-const STATUS_CLASS: Record<MissionStatus, { background: string; text: string; }> = {
+const STATUS_CLASS: Record<SummaryStatus, { background: string; text: string; }> = {
   NONE: { background: "border-slate-200 bg-slate-50", text: "text-slate-900" },
   ING: { background: "border-orange-200 bg-orange-50", text: "text-amber-600" },
   DONE: { background: "border-emerald-200 bg-emerald-50", text: "text-emerald-800" }
@@ -20,7 +20,7 @@ export default function SummaryStatusCard({
   completed
 }: SummaryStatusCardProps) {
 
-  const status = getMissionStatus(count, completed);
+  const status = getSummaryStatus(count, completed);
 
   return (
     <div className={`relative overflow-hidden rounded-xl border px-3 py-2 text-center transition-colors ${STATUS_CLASS[status].background}`}>

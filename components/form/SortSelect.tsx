@@ -1,6 +1,6 @@
 "use client";
 
-import { SORT_OPTIONS, SortType, SortValue } from "@/features/ui/sort.constant";
+import { SORT_OPTIONS, SortType, SortValue } from "@/constants/sortConstant";
 
 interface SortSelectProps<T extends SortType> {
   sortType: T;

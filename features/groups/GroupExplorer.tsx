@@ -2,7 +2,7 @@
 
 import { Group } from "@/features/groups/group.type";
 import SortSelect from "@/components/form/SortSelect";
-import { SortValue } from "@/features/ui/sort.constant";
+import { SortValue } from "@/constants/sortConstant";
 import GroupCard from "@/features/groups/GroupCard";
 import { useEffect, useRef } from "react";
 
