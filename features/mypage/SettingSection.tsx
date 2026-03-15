@@ -1,6 +1,18 @@
+"use client";
+
 import { ChevronRight, Lock, LogOut, MessageCircleQuestion, Trash2 } from "lucide-react";
+import { useAuth } from "@/features/auth/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function SettingSection() {
+
+  const router = useRouter();
+  const { signOut } = useAuth();
+
+  const handleSingOut = () => {
+    signOut();
+    router.replace("/");
+  }
 
   return (
     <section className="mt-1">
@@ -28,7 +40,10 @@ export default function SettingSection() {
         <ChevronRight size={18} className="text-zinc-400" />
       </button>
 
-      <button className="flex w-full items-center justify-between py-4 active:bg-zinc-50">
+      <button
+        className="flex w-full items-center justify-between pt-4 active:bg-zinc-50"
+        onClick={handleSingOut}
+      >
         <div className="flex items-center gap-3">
           <LogOut size={16} className="text-zinc-500" />
           <span className="text-sm text-zinc-800">로그아웃</span>

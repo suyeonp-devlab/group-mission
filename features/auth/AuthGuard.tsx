@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
 import { useAuth } from "@/features/auth/AuthContext";
 import LoadingScreen from "@/components/common/LoadingScreen";
 
@@ -10,13 +9,7 @@ export default function AuthGuard({children}: {
   children: React.ReactNode;
 }) {
 
-  const router = useRouter();
   const { user, isInitializing } = useAuth();
-
-  useEffect(() => {
-    if (!isInitializing && !user) router.replace("/login");
-  }, [isInitializing, user, router]);
-
 
   if (isInitializing) return <LoadingScreen />;
 

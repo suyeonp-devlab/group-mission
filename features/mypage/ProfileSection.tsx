@@ -1,17 +1,53 @@
+"use client";
+
 import Image from "next/image";
 import { Camera } from "lucide-react";
+import React, { useRef } from "react";
+import { PROFILE_MAX_SIZE, PROFILE_MAX_SIZE_MB } from "@/constants/commonConstant";
 
 interface ProfileSectionProps {
   nickname: string;
   joinedAt: string;
   profile: string;
+  onChangeProfile?: (file: File) => void
 }
 
 export default function ProfileSection({
   nickname,
   joinedAt,
-  profile
+  profile,
+  onChangeProfile
 }: ProfileSectionProps) {
+
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const openImagePicker = () => {
+    fileRef.current?.click();
+  };
+
+  const handleChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const file = e.target.files?.[0];
+
+    // Reset to allow selecting the same file again
+    e.target.value = "";
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      // TODO 공통 alert 사용
+      alert("이미지 파일만 선택할 수 있어요");
+      return;
+    }
+
+    if (file.size > PROFILE_MAX_SIZE) {
+      // TODO 공통 alert 사용
+      alert(`${PROFILE_MAX_SIZE_MB}MB 이하 이미지만 업로드할 수 있어요`);
+      return;
+    }
+
+    onChangeProfile?.(file);
+  };
 
   return (
     <div className="flex items-center gap-6 py-2">
@@ -20,9 +56,20 @@ export default function ProfileSection({
           <Image src={profile} alt="프로필 이미지" fill className="object-cover" sizes="80px" />
         </div>
 
-        <div className="absolute bottom-0 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-white ring-1 ring-zinc-200 shadow-sm">
+        <div
+          className="absolute bottom-0 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-white ring-1 ring-zinc-200 shadow-sm"
+          onClick={openImagePicker}
+        >
           <Camera size={14} className="text-zinc-600" />
         </div>
+
+        <input
+          ref={fileRef}
+          type="file"
+          accept="image/png, image/jpeg, image/webp"
+          className="hidden"
+          onChange={handleChangeFile}
+        />
       </button>
 
       <div className="min-w-0 flex-1">

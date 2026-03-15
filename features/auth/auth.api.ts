@@ -15,3 +15,10 @@ export const processLogout = () => {
 
 // TODO 서버 연동
 export const getLoginUserInfo = () => MOCK_USER;
+
+// TODO 서버 연동
+export const uploadProfile = (file: File) => {
+  const formData = new FormData();
+  formData.append("profileImage", file);
+  MOCK_USER.profile = "/default/profile3.png";
+}
