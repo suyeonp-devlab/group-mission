@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 type Tab = { id: string; label: string; };
 
-interface TextTabProps {
+interface ScrollTabProps {
   tabs: Tab[];
   value: string;
   onChange: (v: string) => void;
 }
 
-export default function TextTab({
+export default function ScrollTab({
   tabs,
   value,
   onChange,
-}: TextTabProps) {
+}: ScrollTabProps) {
 
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchBar from "@/components/form/SearchBar";
 import PromoBanner from "@/components/banner/PromoBanner";
-import TextTab from "@/components/tab/TextTab";
+import ScrollTab from "@/components/tab/ScrollTab";
 import GroupExplorer from "@/features/groups/GroupExplorer";
 import { GetGroupsRequest, Group } from "@/features/groups/group.type";
 import { SortValue } from "@/constants/sortConstant";
@@ -113,7 +113,7 @@ export default function CategoryClient({
 
       {/* Categories Tab */}
       <div className="mt-3">
-        <TextTab
+        <ScrollTab
           tabs={categories}
           value={selectedCategory}
           onChange={(v) => replaceParams({ categoryId: v })}

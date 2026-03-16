@@ -14,7 +14,7 @@ export default function ChatPage(){
       <LayoutConfig title="채팅" navIcon="chat" />
 
       {/* Content */}
-      {chats.length <= 0 ? <EmptyChat /> : <ChatClient chats={chats}/>}
+      {chats.length <= 0 ? <EmptyChat /> : <ChatClient chats={chats} />}
     </>
   );
 }

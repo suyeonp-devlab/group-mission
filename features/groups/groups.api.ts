@@ -14,7 +14,7 @@ export const getGroups = (request: NormalizedGetGroupsRequest): GetGroupsRespons
   const filteredGroups = MOCK_GROUPS
     .filter(g =>
       (categoryId === "all" || g.categoryId === categoryId) &&
-      (q === "" || g.title.includes(q)) &&
+      (q === "" || g.title.toUpperCase().includes(q.toUpperCase())) &&
       (available === "0" || g.memberCount < g.maxMembers)
     )
     .toSorted((a, b) => {
