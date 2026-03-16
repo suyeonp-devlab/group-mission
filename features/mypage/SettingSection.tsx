@@ -3,13 +3,24 @@
 import { ChevronRight, Lock, LogOut, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { useAuth } from "@/features/auth/AuthContext";
 import { useRouter } from "next/navigation";
+import { useOverlay } from "@/features/overlay/OverlayContext";
 
 export default function SettingSection() {
 
   const router = useRouter();
   const { signOut } = useAuth();
 
-  const handleSingOut = () => {
+  const { confirm } = useOverlay();
+
+  const handleSingOut = async () => {
+
+    const confirmed = await confirm({
+      title: "로그아웃",
+      description: "로그아웃 하시겠습니까?\n현재 계정에서 로그아웃됩니다."
+    });
+
+    if(!confirmed) return;
+
     signOut();
     router.replace("/");
   }

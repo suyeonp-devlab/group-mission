@@ -4,6 +4,7 @@ import "./globals.css";
 import "../styles/animation.css";
 import React from "react";
 import { AuthProvider } from "@/features/auth/AuthContext";
+import { OverlayProvider } from "@/features/overlay/OverlayContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,9 @@ export default function RootLayout({ children }: Readonly<{
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AuthProvider>
-          {children}
+          <OverlayProvider>
+            {children}
+          </OverlayProvider>
         </AuthProvider>
       </body>
     </html>
