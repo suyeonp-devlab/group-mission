@@ -3,10 +3,10 @@ import {
   GetNotificationsResponse,
   NotificationMeta
 } from "@/features/notifications/notification.type";
-import { MOCK_NOTIFICATIONS } from "@/features/notifications/notification.mock";
+import { MOCK_NOTIFICATION_META, MOCK_NOTIFICATIONS } from "@/features/notifications/notification.mock";
 
 // TODO 서버 연동 (무한스크롤)
-export async function getNotifications(request: GetNotificationsRequest): Promise<GetNotificationsResponse> {
+export const getNotifications = (request: GetNotificationsRequest): GetNotificationsResponse => {
 
   const { page, pageSize } = request;
 
@@ -19,6 +19,10 @@ export async function getNotifications(request: GetNotificationsRequest): Promis
   };
 }
 
-export async function getNotificationMeta(): Promise<NotificationMeta> {
-  return { hasUnread: true, lastCheckedAt: null };
+// TODO 서버 연동
+export const getNotificationMeta = (): NotificationMeta => MOCK_NOTIFICATION_META;
+
+// TODO 서버 연동
+export const updateNotificationMeta = () => {
+  MOCK_NOTIFICATION_META.hasUnread = false;
 }

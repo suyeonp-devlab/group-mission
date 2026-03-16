@@ -1,4 +1,10 @@
-type NotificationType = "WELCOME" | "GROUP" | "SYSTEM";
+export type NotificationType = "WELCOME" | "GROUP" | "SYSTEM";
+
+export const NOTIFICATION_TYPE_LABEL: Record<NotificationType, string> = {
+  WELCOME: "환영",
+  GROUP: "그룹",
+  SYSTEM: "시스템"
+};
 
 export interface Notification {
   id: string;

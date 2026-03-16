@@ -1,3 +1,5 @@
+// TODO : react query 도입 시 사용
+
 import { useQuery } from "@tanstack/react-query";
 import {
   getNotifications,

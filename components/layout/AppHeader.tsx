@@ -4,14 +4,13 @@ import React from "react";
 import { useLayout } from "@/features/layout/LayoutContext";
 import { Bell } from "lucide-react";
 import Link from "next/link";
-import { useNotificationMetaQuery } from "@/features/notifications/notification.query";
+import { getNotificationMeta } from "@/features/notifications/notification.api";
 
 export default function AppHeader() {
 
   const { headerTitle } = useLayout();
 
-  const { data } = useNotificationMetaQuery();
-  const hasUnread = data?.hasUnread ?? false;
+  const { hasUnread } = getNotificationMeta();
 
   return (
     <header className="sticky top-0 z-20 bg-white">
