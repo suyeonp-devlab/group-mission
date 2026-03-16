@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { normalizePin } from "@/lib/commonUtil";
+import { normalizePin } from "@/lib/utils/commonUtil";
 
 interface CodeInputProps {
   value: string;

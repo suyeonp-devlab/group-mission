@@ -1,6 +1,6 @@
 import { MyGroup } from "@/features/groups/group.type";
 import Link from "next/link";
-import { getCategoryThemeColor } from "@/lib/commonUtil";
+import { getCategoryThemeColor } from "@/lib/utils/commonUtil";
 import { CSSProperties } from "react";
 
 interface MyGroupCardProps {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChatSummary } from "@/features/chat/chat.type";
-import { formatRelativeDate } from "@/lib/commonUtil";
+import { formatRelativeDate } from "@/lib/utils/commonUtil";
 
 interface ChatShortcutCardProps {
   chat: ChatSummary

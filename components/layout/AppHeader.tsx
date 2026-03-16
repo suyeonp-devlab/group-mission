@@ -4,10 +4,14 @@ import React from "react";
 import { useLayout } from "@/features/layout/LayoutContext";
 import { Bell } from "lucide-react";
 import Link from "next/link";
+import { useNotificationMetaQuery } from "@/features/notifications/notification.query";
 
 export default function AppHeader() {
 
   const { headerTitle } = useLayout();
+
+  const { data } = useNotificationMetaQuery();
+  const hasUnread = data?.hasUnread ?? false;
 
   return (
     <header className="sticky top-0 z-20 bg-white">
@@ -27,8 +31,9 @@ export default function AppHeader() {
           >
             <Bell size={20} className="text-zinc-800" />
 
-            {/* TODO : 새로운 알림 존재 시 표출 */}
-            <span className="absolute -top-[0.5px] -right-1 h-1.5 w-1.5 rounded-full bg-rose-500" />
+            {hasUnread && (
+              <span className="absolute -top-[0.5px] -right-1 h-1.5 w-1.5 rounded-full bg-rose-500" />
+            )}
           </Link>
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { AlertOptions, AlertState, ConfirmOptions, ConfirmState, LoadingState } from "@/features/overlay/overlay.type";
 import AlertDialog from "@/components/overlay/AlertDialog";
 import ConfirmDialog from "@/components/overlay/ConfirmDialog";
@@ -16,7 +16,7 @@ type OverlayContextValue = {
 const OverlayContext = createContext<OverlayContextValue | null>(null);
 
 /** OverlayProvider controls global UI overlays such as alert, confirm, and loading */
-export function OverlayProvider({ children }: { children: React.ReactNode }) {
+export function OverlayProvider({ children }: PropsWithChildren) {
 
   const [alertState, setAlertState] = useState<AlertState>({
     isOpen: false,

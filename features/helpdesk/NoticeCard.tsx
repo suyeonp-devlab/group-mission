@@ -1,7 +1,7 @@
 import { Help } from "@/features/helpdesk/help.type";
 import { useLayoutEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { formatDate } from "@/lib/commonUtil";
+import { formatDate } from "@/lib/utils/commonUtil";
 
 interface NoticeCardProps {
   notice: Help;

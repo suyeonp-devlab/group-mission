@@ -1,5 +1,5 @@
 import { CircleCheckBig } from "lucide-react";
-import { getSummaryStatus } from "@/lib/commonUtil";
+import { getSummaryStatus } from "@/lib/utils/commonUtil";
 import { SummaryStatus } from "@/features/groups/group.type";
 
 interface SummaryStatusCardProps {

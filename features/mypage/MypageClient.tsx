@@ -2,7 +2,7 @@
 
 import ProfileSection from "@/features/mypage/ProfileSection";
 import { useAuth } from "@/features/auth/AuthContext";
-import { formatDate } from "@/lib/commonUtil";
+import { formatDate } from "@/lib/utils/commonUtil";
 import SettingSection from "@/features/mypage/SettingSection";
 import MyGroupsSection from "@/features/mypage/MyGroupSection";
 import { MyGroup } from "@/features/groups/group.type";

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { User } from "@/features/auth/auth.type";
 import { getLoginUserInfo, processLogin, processLogout } from "@/features/auth/auth.api";
-import { hasCookie } from "@/lib/sessionUtil";
+import { hasCookie } from "@/lib/utils/sessionUtil";
 import { LOGIN_COOKIE } from "@/constants/sessionConstant";
 
 type AuthContextValue = {
@@ -18,7 +18,7 @@ type AuthContextValue = {
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 /** AuthProvider controls authentication state */
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: PropsWithChildren) {
 
   const [user, setUser] = useState<User | null>(null);
   const [isInitializing, setIsInitializing] = useState(true);

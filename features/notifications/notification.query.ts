@@ -1,0 +1,20 @@
+import { useQuery } from "@tanstack/react-query";
+import {
+  getNotifications,
+  getNotificationMeta,
+} from "./notification.api";
+import { GetNotificationsRequest } from "./notification.type";
+
+export const useNotificationsQuery = (request: GetNotificationsRequest) => {
+  return useQuery({
+    queryKey: ["notifications", request.page, request.pageSize],
+    queryFn: () => getNotifications(request),
+  });
+}
+
+export const useNotificationMetaQuery = () => {
+  return useQuery({
+    queryKey: ["notifications", "meta"],
+    queryFn: getNotificationMeta,
+  });
+}

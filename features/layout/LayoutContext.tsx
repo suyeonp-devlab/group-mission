@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useMemo, useState } from "react";
+import { createContext, PropsWithChildren, useContext, useMemo, useState } from "react";
 
 export type HeaderVariant = "default" | "detail";
 export type NavIcon = "categories" | "home" | "chat" | "mypage";
@@ -21,7 +21,7 @@ type LayoutContextValue = {
 const LayoutContext = createContext<LayoutContextValue | null>(null);
 
 /** LayoutProvider controls layout-level UI state */
-export function LayoutProvider({ children }: { children: React.ReactNode }) {
+export function LayoutProvider({ children }: PropsWithChildren) {
 
   const [headerTitle, setHeaderTitle] = useState("GROUP MISSION");
   const [headerVariant, setHeaderVariant] = useState<HeaderVariant>("default");

@@ -1,4 +1,4 @@
-import { getSummaryStatus } from "@/lib/commonUtil";
+import { getSummaryStatus } from "@/lib/utils/commonUtil";
 import { MISSION_STATUS_UI, MyGroupSummary } from "@/features/groups/group.type";
 import SummaryStatusCard from "@/features/home/SummaryStatusCard";
 import { ArrowRight } from "lucide-react";
