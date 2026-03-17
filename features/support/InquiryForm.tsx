@@ -4,7 +4,7 @@ import { ImagePlus } from "lucide-react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { INQUIRY_MAX_SIZE, INQUIRY_MAX_SIZE_MB } from "@/constants/commonConstant";
-import Code from "@/features/common/common.type";
+import { Code } from "@/features/common/common.type";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import BaseSelect from "@/components/form/BaseSelect";

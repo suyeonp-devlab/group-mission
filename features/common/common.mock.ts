@@ -1,4 +1,6 @@
-export const MOCK_CODES = {
+import { Code } from "@/features/common/common.type";
+
+export const MOCK_CODES: Record<string, Code[]> = {
   inquiryType: [
     { value: "01", label: "계정 문의" },
     { value: "02", label: "그룹/미션 문의" },
@@ -6,4 +8,4 @@ export const MOCK_CODES = {
     { value: "04", label: "오류 제보" },
     { value: "05", label: "기타" },
   ]
-} as const;
+};
