@@ -5,6 +5,7 @@ import { Community } from "@/features/groups/detail/group.detail.type";
 import { getGroupCommunities } from "@/features/groups/detail/group.detail.api";
 import { COMMUNITY_PAGE_SIZE } from "@/features/groups/detail/group.detail.normalize";
 import GroupCommunityCard from "@/features/groups/detail/GroupCommunityCard";
+import GroupNoticeCard from "@/features/groups/detail/GroupNoticeCard";
 
 interface GroupCommunityProps {
   groupId: string;
@@ -94,14 +95,16 @@ export default function GroupCommunity({ groupId }: GroupCommunityProps) {
 
       {/* Has results */}
       {hasCommunities && (
-        <>
-          {viewCommunities.map((c) => (
-            <GroupCommunityCard key={c.id} community={c} />
-          ))}
+        <div className="mt-4">
+          {viewCommunities.map((c) => {
+            return c.communityType === "NOTICE"
+              ? <GroupNoticeCard key={c.id} notice={c} />
+              : <GroupCommunityCard key={c.id} community={c} />
+          })}
 
           {/* Control infinite scroll */}
           {hasMore && <div ref={sentinelRef} className="h-8" />}
-        </>
+        </div>
       )}
     </section>
   );
