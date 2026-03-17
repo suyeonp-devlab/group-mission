@@ -28,20 +28,25 @@ export interface Community {
 
 export interface CommunityComment {
   id: string;
-  postId: string;
+  communityId: string;
   authorId: string;
   author: string;
   content: string;
   createdAt: string;
 }
 
-export interface GetCommunityRequest {
+export interface GetCommunitiesRequest {
   groupId: string;
   page: number;
   pageSize: number;
 }
 
-export interface GetCommunityResponse {
+export interface GetCommunitiesResponse {
   items: Community[];
   totalCount: number;
+}
+
+export interface GetCommunityRequest {
+  groupId: string;
+  communityId: string;
 }

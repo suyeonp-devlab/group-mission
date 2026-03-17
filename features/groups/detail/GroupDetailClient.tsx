@@ -6,14 +6,13 @@ import { useState } from "react";
 import SegmentedTab from "@/components/tab/SegmentedTab";
 import GroupLockedPanel from "@/features/groups/detail/GroupLockedPanel";
 import GroupCommunity from "@/features/groups/detail/GroupCommunity";
-import { MemberRole, MemberStatus } from "@/features/groups/detail/group.detail.type";
+import { MemberStatus } from "@/features/groups/detail/group.detail.type";
 import { useOverlay } from "@/features/overlay/OverlayContext";
 import { useRouter } from "next/navigation";
 
 interface GroupDetailClientProps {
   group: Group;
   isMember: boolean;
-  role: MemberRole | null;
   status: MemberStatus | null;
 }
 
@@ -25,7 +24,6 @@ const GROUP_DETAIL_TABS = [
 export default function GroupDetailClient({
   group,
   isMember,
-  role,
   status
 }: GroupDetailClientProps){
 

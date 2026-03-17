@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 import { getGroup, getMyMembership } from "@/features/groups/detail/group.detail.api";
 
 export default async function GroupDetailPage({ params } : {
-  params: Promise<{ id: string }>
+  params: Promise<{ groupId: string }>
 }) {
 
-  const { id: groupId } = await params;
+  const { groupId } = await params;
 
   // TODO 서버 연동
   const group = getGroup(groupId);
@@ -18,13 +18,12 @@ export default async function GroupDetailPage({ params } : {
   return (
     <>
       {/* Set the page-specific layout configuration */}
-      <LayoutConfig title="그룹 상세" headerVariant="detail" showFooter={false} />
+      <LayoutConfig title="그룹" headerVariant="detail" showFooter={false} />
 
       {/* Content */}
       <GroupDetailClient
         group={group}
         isMember={membership.isMember}
-        role={membership.role}
         status={membership.status}
       />
     </>

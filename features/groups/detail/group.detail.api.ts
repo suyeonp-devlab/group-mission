@@ -1,6 +1,10 @@
 import { MOCK_GROUPS } from "@/features/groups/group.mock";
 import { MOCK_COMMUNITY, MOCK_MY_MEMBERSHIP } from "@/features/groups/detail/group.detail.mock";
-import { GetCommunityRequest, GetCommunityResponse } from "@/features/groups/detail/group.detail.type";
+import {
+  GetCommunitiesRequest,
+  GetCommunitiesResponse,
+  GetCommunityRequest
+} from "@/features/groups/detail/group.detail.type";
 
 // TODO 서버 연동
 export const getMyMembership = (id: string) => MOCK_MY_MEMBERSHIP;
@@ -11,7 +15,7 @@ export const getGroup = (id: string) => {
 }
 
 // TODO 서버 연동
-export const getGroupCommunities = (request: GetCommunityRequest): GetCommunityResponse => {
+export const getGroupCommunities = (request: GetCommunitiesRequest): GetCommunitiesResponse => {
 
   const { groupId, page, pageSize } = request;
 
@@ -25,3 +29,10 @@ export const getGroupCommunities = (request: GetCommunityRequest): GetCommunityR
     totalCount: filtered.length
   };
 }
+
+// TODO 서버 연동
+export const getGroupCommunity = (request: GetCommunityRequest) => {
+  return MOCK_COMMUNITY.find((g) =>
+    g.groupId === request.groupId && g.id === request.communityId) ?? null;
+}
+
