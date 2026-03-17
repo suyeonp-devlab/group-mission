@@ -20,7 +20,7 @@ export default function NotificationClient({
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(totalNotificationCount);
 
-  const hasNotifications = viewNotifications.length
+  const hasNotifications = viewNotifications.length > 0
   const hasMore = viewNotifications.length < totalCount;
 
   const sentinelRef = useRef<HTMLDivElement | null>(null);

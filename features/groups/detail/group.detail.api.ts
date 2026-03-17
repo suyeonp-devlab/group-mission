@@ -1,0 +1,27 @@
+import { MOCK_GROUPS } from "@/features/groups/group.mock";
+import { MOCK_COMMUNITY, MOCK_MY_MEMBERSHIP } from "@/features/groups/detail/group.detail.mock";
+import { GetCommunityRequest, GetCommunityResponse } from "@/features/groups/detail/group.detail.type";
+
+// TODO 서버 연동
+export const getMyMembership = (id: string) => MOCK_MY_MEMBERSHIP;
+
+// TODO 서버 연동
+export const getGroup = (id: string) => {
+  return MOCK_GROUPS.find((g) => g.id === id) ?? null;
+}
+
+// TODO 서버 연동
+export const getGroupCommunities = (request: GetCommunityRequest): GetCommunityResponse => {
+
+  const { groupId, page, pageSize } = request;
+
+  const filtered = MOCK_COMMUNITY.filter((c) => c.groupId === groupId) ?? [];
+
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+
+  return {
+    items: filtered.slice(start, end),
+    totalCount: filtered.length
+  };
+}

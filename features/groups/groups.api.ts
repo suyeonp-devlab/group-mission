@@ -13,7 +13,7 @@ export const getGroups = (request: NormalizedGetGroupsRequest): GetGroupsRespons
 
   const filteredGroups = MOCK_GROUPS
     .filter(g =>
-      (categoryId === "all" || g.categoryId === categoryId) &&
+      (categoryId === "all" || g.category.id === categoryId) &&
       (q === "" || g.title.toUpperCase().includes(q.toUpperCase())) &&
       (available === "0" || g.memberCount < g.maxMembers)
     )

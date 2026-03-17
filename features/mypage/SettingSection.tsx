@@ -14,7 +14,7 @@ export default function SettingSection() {
 
   const { confirm } = useOverlay();
 
-  const handleSingOut = async () => {
+  const handleSignOut = async () => {
 
     const confirmed = await confirm({
       title: "로그아웃",
@@ -45,13 +45,14 @@ export default function SettingSection() {
 
   return (
     <section className="mt-1">
-      <button className="flex w-full items-center justify-between py-4 border-b border-zinc-100 active:bg-zinc-50">
-        <div className="flex items-center gap-3">
-          <Lock size={16} className="text-zinc-500" />
-          <span className="text-sm text-zinc-800">화면 잠금 설정</span>
-        </div>
-        <ChevronRight size={18} className="text-zinc-400" />
-      </button>
+      {/* TODO 앱 연결 시 사용 */}
+      {/*<button className="flex w-full items-center justify-between py-4 border-b border-zinc-100 active:bg-zinc-50">*/}
+      {/*  <div className="flex items-center gap-3">*/}
+      {/*    <Lock size={16} className="text-zinc-500" />*/}
+      {/*    <span className="text-sm text-zinc-800">화면 잠금 설정</span>*/}
+      {/*  </div>*/}
+      {/*  <ChevronRight size={18} className="text-zinc-400" />*/}
+      {/*</button>*/}
 
       <Link
         href="/app/support"
@@ -77,7 +78,7 @@ export default function SettingSection() {
 
       <button
         className="flex w-full items-center justify-between pt-4 active:bg-zinc-50"
-        onClick={handleSingOut}
+        onClick={handleSignOut}
       >
         <div className="flex items-center gap-3">
           <LogOut size={16} className="text-zinc-500" />

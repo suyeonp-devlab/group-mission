@@ -32,7 +32,7 @@ export interface Group {
   id: string;
   title: string;
   description: string;
-  categoryId: string;
+  category: Category;
   frequency: GroupFrequency;
   memberCount: number;
   maxMembers: number;
@@ -41,6 +41,7 @@ export interface Group {
   recommendedScore: number;
   achieveRate: number;
   createdAt: string;
+  owner: string;
 }
 
 export interface GetGroupsRequest {
