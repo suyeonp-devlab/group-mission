@@ -144,6 +144,7 @@ export function OverlayProvider({ children }: PropsWithChildren) {
         description={confirmState.options?.description}
         confirmText={confirmState.options?.confirmText}
         cancelText={confirmState.options?.cancelText}
+        confirmVariant={confirmState.options?.confirmVariant}
         onConfirm={handleConfirm}
         onCancel={handleCancel}
       />

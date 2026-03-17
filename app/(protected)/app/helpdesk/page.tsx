@@ -3,6 +3,7 @@ import { GetHelpRequest } from "@/features/helpdesk/help.type";
 import { normalizeGetHelpRequest } from "@/features/helpdesk/help.normalize";
 import { getHelps } from "@/features/helpdesk/help.api";
 import HelpdeskClient from "@/features/helpdesk/HelpdeskClient";
+import { Info } from "lucide-react";
 
 export default async function HelpdeskPage({ searchParams } : {
   searchParams: Promise<GetHelpRequest>
@@ -20,6 +21,11 @@ export default async function HelpdeskPage({ searchParams } : {
       <LayoutConfig title="공지사항 / FAQ" headerVariant="detail" showFooter={false} />
 
       {/* Content */}
+      <div className="mt-2 flex items-center gap-3 rounded-xl bg-zinc-50 ring-1 ring-zinc-200 px-4 py-3 text-xs text-zinc-700">
+        <Info size={16} className="shrink-0 text-zinc-500" />
+        <p>궁금한 내용을 빠르게 확인해보세요.</p>
+      </div>
+
       <HelpdeskClient
         key={normalized.tab}
         selectedTab={normalized.tab}

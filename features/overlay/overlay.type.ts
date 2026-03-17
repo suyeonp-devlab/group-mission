@@ -15,6 +15,7 @@ export interface ConfirmOptions {
   description?: string;
   confirmText?: string;
   cancelText?: string;
+  confirmVariant?: "default" | "danger";
 }
 
 export interface ConfirmState {

@@ -38,12 +38,12 @@ export default function ProfileSection({
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      await alert({title: "파일 업로드", description: "이미지 파일만 선택할 수 있어요."});
+      await alert({ title: "파일 업로드", description: "이미지 파일만 선택할 수 있어요." });
       return;
     }
 
     if (file.size > PROFILE_MAX_SIZE) {
-      await alert({title: "파일 업로드", description: `${PROFILE_MAX_SIZE_MB}MB 이하 이미지만 업로드할 수 있어요`});
+      await alert({ title: "파일 업로드", description: `${PROFILE_MAX_SIZE_MB}MB 이하 이미지만 업로드할 수 있어요` });
       return;
     }
 

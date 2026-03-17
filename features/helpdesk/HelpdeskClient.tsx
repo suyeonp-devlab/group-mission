@@ -6,7 +6,6 @@ import { useCallback, useState } from "react";
 import { normalizeGetHelpRequest } from "@/features/helpdesk/help.normalize";
 import { getHelps } from "@/features/helpdesk/help.api";
 import SegmentedTab from "@/components/tab/SegmentedTab";
-import { Info } from "lucide-react";
 import ScrollToTopButton from "@/components/button/ScrollToTopButton";
 import HelpExplorer from "@/features/helpdesk/HelpExplorer";
 
@@ -70,11 +69,6 @@ export default function HelpdeskClient({
 
   return (
     <div className="bg-white">
-      <div className="mt-2 flex items-center gap-3 rounded-xl bg-zinc-50 ring-1 ring-zinc-200 px-4 py-3 text-sm text-zinc-700">
-        <Info size={18} className="shrink-0 text-zinc-500" />
-        <p className="mt-0.5">궁금한 내용을 빠르게 확인해보세요.</p>
-      </div>
-
       {/* Tab */}
       <div className="mt-4">
         <SegmentedTab

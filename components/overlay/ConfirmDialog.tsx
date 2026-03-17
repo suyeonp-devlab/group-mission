@@ -12,6 +12,7 @@ export default function ConfirmDialog({
   description,
   confirmText = "확인",
   cancelText = "취소",
+  confirmVariant = "default",
   onConfirm,
   onCancel
 }: ConfirmDialogProps) {
@@ -45,7 +46,7 @@ export default function ConfirmDialog({
           <button
             type="button"
             onClick={onConfirm}
-            className="flex-1 rounded-2xl bg-emerald-600 px-4 py-3.5 text-sm font-semibold text-white transition active:scale-[0.99]"
+            className={`flex-1 rounded-2xl  px-4 py-3.5 text-sm font-semibold text-white transition active:scale-[0.99] ${confirmVariant === "danger" ? "bg-red-600 active:bg-red-700" : "bg-emerald-600 active:bg-emerald-700"}`}
           >
             {confirmText}
           </button>
