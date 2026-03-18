@@ -31,6 +31,7 @@ export interface CommunityComment {
   communityId: string;
   authorId: string;
   author: string;
+  authorProfile: string;
   content: string;
   createdAt: string;
 }

@@ -1,14 +1,22 @@
-import { Community, MyMembership } from "@/features/groups/detail/group.detail.type";
+import { Community, CommunityComment, MyMembership } from "@/features/groups/detail/group.detail.type";
 
 export const MOCK_MY_MEMBERSHIP: MyMembership = {
   isMember: true, role: null, status: "ACTIVE"
 }
 
+const MOCK_COMMUNITY_COMMENT: CommunityComment[] = [
+  { id: "C00000011", communityId: "C0000002", authorId: "testUser", author: "닉네임1번", authorProfile: "/default/profile1.png", content: "저도 미션 완료했습니다.", createdAt: "2026-03-17T09:00:00" },
+  { id: "C00000012", communityId: "C0000002", authorId: "user2", author: "닉네임1번", authorProfile: "/default/profile2.png", content: "저도 미션 완료했습니다.", createdAt: "2026-03-17T09:00:00" },
+  { id: "C00000013", communityId: "C0000002", authorId: "user3", author: "닉네임1번", authorProfile: "/default/profile3.png", content: "저도 미션 완료했습니다.", createdAt: "2026-03-17T09:00:00" },
+  { id: "C00000014", communityId: "C0000002", authorId: "user4", author: "닉네임1번", authorProfile: "/default/profile4.png", content: "저도 미션 완료했습니다.저도 미션 완료했습니다.저도 미션 완료했습니다.저도 미션 완료했습니다.저도 미션 완료했습니다.저도 미션 완료했습니다.저도 미션 완료했습니다.", createdAt: "2026-03-17T09:00:00" },
+  { id: "C00000015", communityId: "C0000002", authorId: "user5", author: "닉네임1번", authorProfile: "/default/profile1.png", content: "저도 미션 완료했습니다.", createdAt: "2026-03-17T09:00:00" }
+]
+
 export const MOCK_COMMUNITY: Community[] = [
-  { id: "C0000001", communityType: "NOTICE", groupId: "G202603040001", authorId: "leader", authorProfile: "/default/profile1.png", author: "그룹장", content: "이번 주 인증은 밤 11시 59분 전까지만 인정됩니다. 늦지 않게 참여해주세요! 늦지 않게 참여해주세요! 늦지 않게 참여해주세요!", imageUrls: null, likeCount: 5, amazingCount: 2, commentCount: 1, createdAt: "2026-03-17T09:00:00", isLiked: false, isAmazing: false, comments: null },
-  { id: "C0000002", communityType: "GENERAL", groupId: "G202603040001", authorId: "testUser", authorProfile: "/default/profile2.png", author: "작성자입니다작성자요", content: "오늘도 미션 완료! 퇴근 전에 겨우 했는데 그래도 하고 나니까 뿌듯하다 😊오늘도 미션 완료! 퇴근 전에 겨우 했는데 그래도 하고 나니까 뿌듯하다 😊", imageUrls: ["/default/profile2.png"], likeCount: 8, amazingCount: 3, commentCount: 2, createdAt: "2026-03-17T10:10:00", isLiked: false, isAmazing: true, comments: null },
+  { id: "C0000001", communityType: "NOTICE", groupId: "G202603040001", authorId: "leader", authorProfile: "/default/profile1.png", author: "그룹장", content: "이번 주 인증은 밤 11시 59분 전까지만 인정됩니다. 늦지 않게 참여해주세요! 늦지 않게 참여해주세요! 늦지 않게 참여해주세요!", imageUrls: ["/default/profile3.png", "/default/profile4.png", "/default/profile1.png", "/default/profile2.png"], likeCount: 5, amazingCount: 2, commentCount: 1, createdAt: "2026-03-17T09:00:00", isLiked: false, isAmazing: false, comments: null },
+  { id: "C0000002", communityType: "GENERAL", groupId: "G202603040001", authorId: "testUser", authorProfile: "/default/profile2.png", author: "작성자입니다작성자요", content: "오늘도 미션 완료! 퇴근 전에 겨우 했는데 그래도 하고 나니까 뿌듯하다 😊오늘도 미션 완료! 퇴근 전에 겨우 했는데 그래도 하고 나니까 뿌듯하다 😊", imageUrls: ["/default/profile2.png"], likeCount: 8, amazingCount: 3, commentCount: 2, createdAt: "2026-03-17T10:10:00", isLiked: false, isAmazing: true, comments: MOCK_COMMUNITY_COMMENT },
   { id: "C0000003", communityType: "GENERAL", groupId: "G202603040001", authorId: "user2", authorProfile: "/default/profile3.png", author: "닉네임1번", content: "다들 주말에도 미션 하시나요? 저는 주말 루틴이 제일 어렵네요 ㅋㅋ", imageUrls: null, likeCount: 4, amazingCount: 1, commentCount: 3, createdAt: "2026-03-17T10:40:00", isLiked: true, isAmazing: false, comments: null },
-  { id: "C0000004", communityType: "GENERAL", groupId: "G202603040001", authorId: "user3", authorProfile: "/default/profile4.png", author: "닉네임2번", content: "오늘은 아침에 인증 완료! 확실히 하루가 가볍네요.", imageUrls: ["/default/profile3.png", "/default/profile4.png"], likeCount: 10, amazingCount: 5, commentCount: 1, createdAt: "2026-03-17T11:00:00", isLiked: false, isAmazing: false, comments: null },
+  { id: "C0000004", communityType: "GENERAL", groupId: "G202603040001", authorId: "user3", authorProfile: "/default/profile4.png", author: "닉네임2번", content: "오늘은 아침에 인증 완료! 확실히 하루가 가볍네요.", imageUrls: ["/default/profile3.png", "/default/profile4.png"], likeCount: 10, amazingCount: 5, commentCount: 1, createdAt: "2026-03-17T11:00:00", isLiked: false, isAmazing: false, comments: MOCK_COMMUNITY_COMMENT },
   { id: "C0000005", communityType: "GENERAL", groupId: "G202603040001", authorId: "user4", authorProfile: "/default/profile1.png", author: "닉네임3번", content: "다들 꾸준히 하는 거 보니까 자극된다. 나도 열심히 해야지!", imageUrls: null, likeCount: 7, amazingCount: 2, commentCount: 4, createdAt: "2026-03-17T11:30:00", isLiked: false, isAmazing: false, comments: null },
   { id: "C0000006", communityType: "GENERAL", groupId: "G202603040001", authorId: "user5", authorProfile: "/default/profile2.png", author: "닉네임4번", content: "오늘은 조금 힘들었는데 그래도 인증 완료했습니다!", imageUrls: ["/logo.png", "/default/profile1.png", "/default/profile2.png"], likeCount: 6, amazingCount: 3, commentCount: 2, createdAt: "2026-03-17T12:10:00", isLiked: true, isAmazing: false, comments: null },
   { id: "C0000007", communityType: "GENERAL", groupId: "G202603040001", authorId: "user6", authorProfile: "/default/profile4.png", author: "닉네임5번", content: "오늘은 인증 못할 뻔했는데 겨우 했어요 ㅠㅠ 다들 화이팅!", imageUrls: null, likeCount: 3, amazingCount: 1, commentCount: 0, createdAt: "2026-03-17T13:00:00", isLiked: false, isAmazing: false, comments: null },

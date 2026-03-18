@@ -1,6 +1,7 @@
 import { Community } from "@/features/groups/detail/group.detail.type";
 import { Pin } from "lucide-react";
 import Link from "next/link";
+import ImageRow from "@/components/common/ImageRow";
 
 interface GroupNoticeCardProps {
   notice: Community;
@@ -18,6 +19,10 @@ export default function GroupNoticeCard({ notice }: GroupNoticeCardProps){
         <p className="mt-2 line-clamp-2 text-sm leading-6 text-zinc-800">
           {notice.content}
         </p>
+
+        {notice.imageUrls && notice.imageUrls.length > 0 && (
+          <ImageRow showCount={3} imageUrls={notice.imageUrls} />
+        )}
       </article>
     </Link>
   );
