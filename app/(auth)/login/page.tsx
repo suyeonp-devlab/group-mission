@@ -1,7 +1,8 @@
 import Link from "next/link";
-import LoginForm from "@/features/auth/LoginForm";
+import LoginForm from "@/features/auth/components/LoginForm";
 
-export default function LoginPage() {
+export default function Page() {
+
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10 pt-10 text-center">
       {/* Top bar */}

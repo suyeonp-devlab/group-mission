@@ -1,7 +1,8 @@
 import Link from "next/link";
-import SignupForm from "@/features/auth/SignupForm";
+import SignupForm from "@/features/auth/components/SignupForm";
 
-export default function SignupPage() {
+export default function Page() {
+
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10 pt-10 text-center">
       {/* Top bar */}

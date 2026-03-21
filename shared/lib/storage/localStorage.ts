@@ -1,0 +1,1 @@
+export const USERID_STORAGE_KEY = "gm_saved_userid";

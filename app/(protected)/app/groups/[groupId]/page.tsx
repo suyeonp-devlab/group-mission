@@ -1,9 +1,9 @@
-import LayoutConfig from "@/features/layout/LayoutConfig";
-import GroupDetailClient from "@/features/groups/detail/GroupDetailClient";
+import LayoutConfig from "@/shared/system/layout/LayoutConfig";
+import GroupDetailPage from "@/features/groups/detail/GroupDetailPage";
 import { notFound } from "next/navigation";
-import { getGroup, getMyMembership } from "@/features/groups/detail/group.detail.api";
+import { getGroup, getMyMembership } from "@/features/groups/detail/api/api";
 
-export default async function GroupDetailPage({ params } : {
+export default async function Page({ params } : {
   params: Promise<{ groupId: string }>
 }) {
 
@@ -21,7 +21,7 @@ export default async function GroupDetailPage({ params } : {
       <LayoutConfig title="그룹" headerVariant="detail" showFooter={false} />
 
       {/* Content */}
-      <GroupDetailClient
+      <GroupDetailPage
         group={group}
         isMember={membership.isMember}
         status={membership.status}

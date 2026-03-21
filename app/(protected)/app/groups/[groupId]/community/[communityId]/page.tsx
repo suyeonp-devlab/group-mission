@@ -1,9 +1,9 @@
-import LayoutConfig from "@/features/layout/LayoutConfig";
+import LayoutConfig from "@/shared/system/layout/LayoutConfig";
 import { notFound } from "next/navigation";
-import { getGroupCommunity, getMyMembership } from "@/features/groups/detail/group.detail.api";
-import GroupCommunityClient from "@/features/groups/detail/GroupCommunityClient";
+import { getGroupCommunity, getMyMembership } from "@/features/groups/detail/api/api";
+import GroupCommunityPage from "@/features/groups/detail/GroupCommunityPage";
 
-export default async function GroupCommunityDetailPage({ params } : {
+export default async function Page({ params } : {
   params: Promise<{ groupId: string, communityId: string }>
 }) {
 
@@ -22,7 +22,7 @@ export default async function GroupCommunityDetailPage({ params } : {
       <LayoutConfig title="그룹" headerVariant="detail" showFooter={false} />
 
       {/* Content */}
-      <GroupCommunityClient community={community} />
+      <GroupCommunityPage community={community} />
     </>
   );
 }

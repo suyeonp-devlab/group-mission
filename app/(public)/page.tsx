@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MainPage() {
+export default function Page() {
+
   return (
     <main className="relative min-h-dvh overflow-hidden">
       {/* Gradient background (below everything) */}

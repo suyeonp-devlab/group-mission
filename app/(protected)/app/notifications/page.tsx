@@ -1,9 +1,9 @@
-import LayoutConfig from "@/features/layout/LayoutConfig";
-import { getNotifications, updateNotificationMeta } from "@/features/notifications/notification.api";
-import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/notification.normalize";
-import NotificationClient from "@/features/notifications/NotificationClient";
+import LayoutConfig from "@/shared/system/layout/LayoutConfig";
+import { getNotifications, updateNotificationMeta } from "@/features/notifications/api/api";
+import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/utils/normalize";
+import NotificationPage from "@/features/notifications/NotificationPage";
 
-export default async function NotificationPage(){
+export default async function Page(){
 
   // TODO 서버 연동
   const { items: notifications, totalCount } = getNotifications({
@@ -19,7 +19,7 @@ export default async function NotificationPage(){
       <LayoutConfig title="알림" headerVariant="detail" showFooter={false} />
 
       {/* Content */}
-      <NotificationClient
+      <NotificationPage
         notifications={notifications}
         totalNotificationCount={totalCount}
       />

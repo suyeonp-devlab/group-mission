@@ -1,8 +1,8 @@
 import React from "react";
-import { LayoutProvider } from "@/features/layout/LayoutContext";
-import HeaderSwitcher from "@/components/layout/HeaderSwitcher";
-import AppFooter from "@/components/layout/AppFooter";
-import AuthGuard from "@/features/auth/AuthGuard";
+import { LayoutProvider } from "@/shared/system/layout/LayoutContext";
+import HeaderSwitcher from "@/shared/system/layout/header/HeaderSwitcher";
+import AppFooter from "@/shared/system/layout/footer/AppFooter";
+import AuthGuard from "@/shared/system/auth/AuthGuard";
 
 export default function ProtectedLayout({ children }: {
   children: React.ReactNode;

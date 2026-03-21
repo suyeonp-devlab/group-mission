@@ -1,9 +1,9 @@
-import LayoutConfig from "@/features/layout/LayoutConfig";
-import ChatClient from "@/features/chat/ChatClient";
-import { getChats } from "@/features/chat/chat.api";
-import EmptyChat from "@/features/chat/EmptyChat";
+import LayoutConfig from "@/shared/system/layout/LayoutConfig";
+import ChatPage from "@/features/chat/ChatPage";
+import { getChats } from "@/features/chat/api/api";
+import EmptyChatPage from "@/features/chat/EmptyChatPage";
 
-export default function ChatPage(){
+export default function Page(){
 
   // TODO 서버 연동
   const chats = getChats();
@@ -14,7 +14,7 @@ export default function ChatPage(){
       <LayoutConfig title="채팅" navIcon="chat" />
 
       {/* Content */}
-      {chats.length <= 0 ? <EmptyChat /> : <ChatClient chats={chats} />}
+      {chats.length <= 0 ? <EmptyChatPage /> : <ChatPage chats={chats} />}
     </>
   );
 }

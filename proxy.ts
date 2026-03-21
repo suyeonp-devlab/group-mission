@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { LOGIN_COOKIE } from "@/constants/sessionConstant";
+import { LOGIN_COOKIE } from "@/shared/lib/cookie";
 
 export function proxy(req: NextRequest) {
 

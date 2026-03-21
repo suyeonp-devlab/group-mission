@@ -1,10 +1,10 @@
-import LayoutConfig from "@/features/layout/LayoutConfig";
-import MypageClient from "@/features/mypage/MypageClient";
-import { GetMyGroupsRequest } from "@/features/groups/group.type";
-import { normalizeGetMyGroupsRequest } from "@/features/groups/groups.normalize";
-import { getMyGroups } from "@/features/groups/groups.api";
+import LayoutConfig from "@/shared/system/layout/LayoutConfig";
+import Mypage from "@/features/mypage/Mypage";
+import { getMyGroups } from "@/features/groups/my-groups/api/api";
+import { GetMyGroupsRequest } from "@/features/groups/my-groups/types/type";
+import { normalizeGetMyGroupsRequest } from "@/features/groups/my-groups/utils/normalize";
 
-export default async function MyPage(){
+export default async function Page(){
 
   const groupSearchParams: GetMyGroupsRequest = {};
   const normalized = normalizeGetMyGroupsRequest(groupSearchParams);
@@ -20,7 +20,7 @@ export default async function MyPage(){
       <LayoutConfig title="마이페이지" navIcon="mypage" />
 
       {/* Content */}
-      <MypageClient myGroups={viewMyGroups} totalCount={totalCount} />
+      <Mypage myGroups={viewMyGroups} totalCount={totalCount} />
     </>
   );
 }

@@ -1,10 +1,11 @@
-import HomeClient from "@/features/home/HomeClient";
-import { getGroupCategories } from "@/features/categories/categories.api";
-import { getGroups, getMyGroupSummary } from "@/features/groups/groups.api";
-import { normalizeGetGroupsRequest } from "@/features/groups/groups.normalize";
-import { GetGroupsRequest } from "@/features/groups/group.type";
+import HomePage from "@/features/home/HomePage";
+import { getGroupCategories } from "@/features/categories/api/api";
+import { getGroups } from "@/features/groups/list/api/api";
+import { normalizeGetGroupsRequest } from "@/features/groups/list/utils/normalize";
+import { GetGroupsRequest } from "@/features/groups/list/types/type";
+import { getMyGroupSummary } from "@/features/groups/my-groups/api/api";
 
-export default async function AppMainPage(){
+export default async function Page(){
 
   const groupSearchParams: GetGroupsRequest = { sort: "RECOMMENDED" };
   const normalized = normalizeGetGroupsRequest(groupSearchParams);
@@ -24,7 +25,7 @@ export default async function AppMainPage(){
   const { items: groups } = groupRes.status === "fulfilled" ? groupRes.value : { items: [] };
 
   return (
-    <HomeClient
+    <HomePage
       categories={categories}
       summary={summary}
       groups={groups}
