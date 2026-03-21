@@ -1,4 +1,4 @@
-import { CommunityComment } from "@/features/groups/detail/types/type";
+import { CommunityComment } from "@/features/groups/detail/types/groupDetail.type";
 import CommentCard from "@/features/groups/detail/components/comments/CommentCard";
 
 interface CommentSectionProps {

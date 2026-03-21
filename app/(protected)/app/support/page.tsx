@@ -1,7 +1,7 @@
 import LayoutConfig from "@/shared/system/layout/LayoutConfig";
-import { GetHelpRequest } from "@/features/support/types/type";
-import { normalizeGetHelpRequest } from "@/features/support/utils/normalize";
-import { getHelps } from "@/features/support/api/api";
+import { GetHelpRequest } from "@/features/support/types/support.type";
+import { normalizeGetHelpRequest } from "@/features/support/utils/support.normalize";
+import { getHelps } from "@/features/support/api/support.api";
 import SupportPage from "@/features/support/SupportPage";
 import { Info } from "lucide-react";
 

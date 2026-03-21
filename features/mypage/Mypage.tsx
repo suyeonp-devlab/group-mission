@@ -6,8 +6,8 @@ import { formatDate } from "@/shared/lib/date";
 import SettingSection from "@/features/mypage/components/SettingSection";
 import MyGroupsSection from "@/features/mypage/components/MyGroupSection";
 import { useState } from "react";
-import { uploadProfile } from "@/features/auth/api/api";
-import { MyGroup } from "@/features/groups/my-groups/types/type";
+import { uploadProfile } from "@/features/auth/api/aut.api";
+import { MyGroup } from "@/features/groups/my-groups/types/myGroup.type";
 
 interface MypageProps {
   myGroups: MyGroup[];

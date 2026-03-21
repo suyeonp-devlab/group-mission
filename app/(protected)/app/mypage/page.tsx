@@ -1,8 +1,8 @@
 import LayoutConfig from "@/shared/system/layout/LayoutConfig";
 import Mypage from "@/features/mypage/Mypage";
-import { getMyGroups } from "@/features/groups/my-groups/api/api";
-import { GetMyGroupsRequest } from "@/features/groups/my-groups/types/type";
-import { normalizeGetMyGroupsRequest } from "@/features/groups/my-groups/utils/normalize";
+import { getMyGroups } from "@/features/groups/my-groups/api/myGroup.api";
+import { GetMyGroupsRequest } from "@/features/groups/my-groups/types/myGroup.type";
+import { normalizeGetMyGroupsRequest } from "@/features/groups/my-groups/utils/myGroup.normalize";
 
 export default async function Page(){
 

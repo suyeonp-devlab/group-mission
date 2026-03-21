@@ -1,4 +1,4 @@
-import { Community } from "@/features/groups/detail/types/type";
+import { Community } from "@/features/groups/detail/types/groupDetail.type";
 import { Pin } from "lucide-react";
 import Link from "next/link";
 import ImageRow from "@/shared/ui/display/ImageRow";

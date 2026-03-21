@@ -1,7 +1,7 @@
 "use client";
 
 import { Lock } from "lucide-react";
-import { MemberStatus } from "@/features/groups/detail/types/type";
+import { MemberStatus } from "@/features/groups/detail/types/groupDetail.type";
 
 interface GroupLockedPanel {
   status: MemberStatus | null;

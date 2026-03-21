@@ -1,16 +1,16 @@
 "use client";
 
-import { Category } from "@/features/categories/types/type";
+import { Category } from "@/features/categories/types/category.type";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SearchBar from "@/shared/ui/form/SearchBar";
 import CategoryPromoBanner from "@/features/categories/components/CategoryPromoBanner";
 import ScrollTab from "@/shared/ui/tab/ScrollTab";
 import GroupExplorer from "@/features/groups/list/components/GroupExplorer";
-import { GetGroupsRequest, Group } from "@/features/groups/list/types/type";
+import { GetGroupsRequest, Group } from "@/features/groups/list/types/group.type";
 import { SortValue } from "@/shared/config/sort";
-import { normalizeGetGroupsRequest } from "@/features/groups/list/utils/normalize";
-import { getGroups } from "@/features/groups/list/api/api";
+import { normalizeGetGroupsRequest } from "@/features/groups/list/utils/group.normalize";
+import { getGroups } from "@/features/groups/list/api/group.api";
 import ScrollToTopButton from "@/shared/ui/button/ScrollToTopButton";
 
 interface CategoryPageProps {

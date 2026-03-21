@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Inbox } from "lucide-react";
 import MyGroupCard from "@/features/groups/my-groups/components/MyGroupCard";
-import { MyGroup } from "@/features/groups/my-groups/types/type";
+import { MyGroup } from "@/features/groups/my-groups/types/myGroup.type";
 
 interface MyGroupsSection {
   myGroups: MyGroup[];

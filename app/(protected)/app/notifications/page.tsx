@@ -1,6 +1,6 @@
 import LayoutConfig from "@/shared/system/layout/LayoutConfig";
-import { getNotifications, updateNotificationMeta } from "@/features/notifications/api/api";
-import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/utils/normalize";
+import { getNotifications, updateNotificationMeta } from "@/features/notifications/api/notification.api";
+import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/utils/notification.normalize";
 import NotificationPage from "@/features/notifications/NotificationPage";
 
 export default async function Page(){

@@ -1,4 +1,4 @@
-import { MOCK_USER } from "@/features/auth/api/mock";
+import { MOCK_USER } from "@/features/auth/api/auth.mock";
 import { removeCookie, setCookie, LOGIN_COOKIE } from "@/shared/lib/cookie";
 
 // TODO 서버 연동

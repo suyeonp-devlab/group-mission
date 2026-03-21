@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Category } from "@/features/categories/types/type";
+import { Category } from "@/features/categories/types/category.type";
 
 interface CategoryShortcutCardProps {
   category: Category;

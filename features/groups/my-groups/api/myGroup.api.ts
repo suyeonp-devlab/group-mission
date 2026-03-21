@@ -1,5 +1,5 @@
-import { MOCK_MY_GROUPS, MY_GROUP_SUMMARY } from "@/features/groups/my-groups/api/mock";
-import { GetMyGroupsResponse, NormalizedGetMyGroupsRequest } from "@/features/groups/my-groups/types/type";
+import { MOCK_MY_GROUPS, MY_GROUP_SUMMARY } from "@/features/groups/my-groups/api/myGroup.mock";
+import { GetMyGroupsResponse, NormalizedGetMyGroupsRequest } from "@/features/groups/my-groups/types/myGroup.type";
 
 
 // TODO 서버 연동

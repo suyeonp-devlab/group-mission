@@ -1,6 +1,6 @@
 "use client";
 
-import { Group } from "@/features/groups/list/types/type";
+import { Group } from "@/features/groups/list/types/group.type";
 import SortSelect from "@/shared/ui/form/SortSelect";
 import { SortValue } from "@/shared/config/sort";
 import GroupCard from "@/features/groups/list/components/GroupCard";

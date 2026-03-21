@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Community } from "@/features/groups/detail/types/type";
-import { getGroupCommunities } from "@/features/groups/detail/api/api";
-import { COMMUNITY_PAGE_SIZE } from "@/features/groups/detail/utils/normalize";
+import { Community } from "@/features/groups/detail/types/groupDetail.type";
+import { getGroupCommunities } from "@/features/groups/detail/api/groupDetail.api";
+import { COMMUNITY_PAGE_SIZE } from "@/features/groups/detail/utils/groupDetail.normalize";
 import CommunityCard from "@/features/groups/detail/components/community/CommunityCard";
 import CommunityNoticeCard from "@/features/groups/detail/components/community/CommunityNoticeCard";
 

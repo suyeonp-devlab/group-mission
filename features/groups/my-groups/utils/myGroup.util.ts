@@ -1,4 +1,4 @@
-import { SummaryStatus } from "@/features/groups/my-groups/types/type";
+import { SummaryStatus } from "@/features/groups/my-groups/types/myGroup.type";
 
 export const getSummaryStatus = (count: number, completed: number): SummaryStatus => {
   if (count === 0) return "NONE";

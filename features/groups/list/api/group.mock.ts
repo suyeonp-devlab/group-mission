@@ -1,4 +1,4 @@
-import { Group } from "@/features/groups/list/types/type";
+import { Group } from "@/features/groups/list/types/group.type";
 
 export const MOCK_GROUPS: Group[] = [
   { id: "G202603040001", title: "물 2L 마시기", description: "매일 물 2L 마시고 체크해요. 매일 물 2L 마시고 체크해요. 매일 물 2L 마시고 체크해요. 매일 물 2L 마시고 체크해요.", category: { id: "01", label: "운동/식단", badges: [], color: "#bef264" }, frequency: "DAILY", memberCount: 6, maxMembers: 10, completeMember: 4, badges: ["ACTIVE", "SUCCESS"], recommendedScore: 100, achieveRate: 40, createdAt: "2026-03-01T14:32:10", owner: "방장입니다방장입니다" },

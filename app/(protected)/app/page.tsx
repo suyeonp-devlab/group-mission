@@ -1,9 +1,9 @@
 import HomePage from "@/features/home/HomePage";
-import { getGroupCategories } from "@/features/categories/api/api";
-import { getGroups } from "@/features/groups/list/api/api";
-import { normalizeGetGroupsRequest } from "@/features/groups/list/utils/normalize";
-import { GetGroupsRequest } from "@/features/groups/list/types/type";
-import { getMyGroupSummary } from "@/features/groups/my-groups/api/api";
+import { getGroupCategories } from "@/features/categories/api/category.api";
+import { getGroups } from "@/features/groups/list/api/group.api";
+import { normalizeGetGroupsRequest } from "@/features/groups/list/utils/group.normalize";
+import { GetGroupsRequest } from "@/features/groups/list/types/group.type";
+import { getMyGroupSummary } from "@/features/groups/my-groups/api/myGroup.api";
 
 export default async function Page(){
 

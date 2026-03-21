@@ -4,7 +4,7 @@ import { ChevronRight, LogOut, MessageCircleQuestion, Trash2 } from "lucide-reac
 import { useAuth } from "@/shared/system/auth/AuthContext";
 import { useRouter } from "next/navigation";
 import { useOverlay } from "@/shared/system/overlay/OverlayContext";
-import { deleteAccount } from "@/features/auth/api/api";
+import { deleteAccount } from "@/features/auth/api/aut.api";
 import Link from "next/link";
 
 export default function SettingSection() {

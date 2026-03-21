@@ -2,8 +2,8 @@ import {
   GetNotificationsRequest,
   GetNotificationsResponse,
   NotificationMeta
-} from "@/features/notifications/types/type";
-import { MOCK_NOTIFICATION_META, MOCK_NOTIFICATIONS } from "@/features/notifications/api/mock";
+} from "@/features/notifications/types/notification.type";
+import { MOCK_NOTIFICATION_META, MOCK_NOTIFICATIONS } from "@/features/notifications/api/notification.mock";
 
 // TODO 서버 연동 (무한스크롤)
 export const getNotifications = (request: GetNotificationsRequest): GetNotificationsResponse => {

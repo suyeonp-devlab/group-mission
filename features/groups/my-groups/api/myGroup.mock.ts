@@ -1,4 +1,4 @@
-import { MyGroup, MyGroupSummary } from "@/features/groups/my-groups/types/type";
+import { MyGroup, MyGroupSummary } from "@/features/groups/my-groups/types/myGroup.type";
 
 export const MY_GROUP_SUMMARY: MyGroupSummary = {
   total: { count: 5, completed: 3 },

@@ -1,4 +1,4 @@
-import { Community, CommunityComment, MyMembership } from "@/features/groups/detail/types/type";
+import { Community, CommunityComment, MyMembership } from "@/features/groups/detail/types/groupDetail.type";
 
 export const MOCK_MY_MEMBERSHIP: MyMembership = {
   isMember: true, role: null, status: "ACTIVE"

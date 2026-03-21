@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Heart, MessageCircle, Sparkles } from "lucide-react";
-import { Community } from "@/features/groups/detail/types/type";
+import { Community } from "@/features/groups/detail/types/groupDetail.type";
 import { formatRelativeDate } from "@/shared/lib/date";
 import { useAuth } from "@/shared/system/auth/AuthContext";
 import ImageRow from "@/shared/ui/display/ImageRow";

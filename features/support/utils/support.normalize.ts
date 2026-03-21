@@ -1,4 +1,4 @@
-import { GetHelpRequest, NormalizedGetHelpRequest } from "@/features/support/types/type";
+import { GetHelpRequest, NormalizedGetHelpRequest } from "@/features/support/types/support.type";
 
 export const HELP_PAGE_SIZE = 10;
 

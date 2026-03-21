@@ -1,7 +1,7 @@
 import LayoutConfig from "@/shared/system/layout/LayoutConfig";
 import GroupDetailPage from "@/features/groups/detail/GroupDetailPage";
 import { notFound } from "next/navigation";
-import { getGroup, getMyMembership } from "@/features/groups/detail/api/api";
+import { getGroup, getMyMembership } from "@/features/groups/detail/api/groupDetail.api";
 
 export default async function Page({ params } : {
   params: Promise<{ groupId: string }>

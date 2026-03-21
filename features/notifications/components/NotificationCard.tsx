@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Notification, NOTIFICATION_TYPE_LABEL, Type } from "@/features/notifications/types/type";
+import { Notification, NOTIFICATION_TYPE_LABEL, Type } from "@/features/notifications/types/notification.type";
 import { formatRelativeDate } from "@/shared/lib/date";
 
 interface NotificationCardProps {

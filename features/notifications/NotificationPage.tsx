@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { getNotifications } from "@/features/notifications/api/api";
-import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/utils/normalize";
-import { Notification } from "@/features/notifications/types/type";
+import { getNotifications } from "@/features/notifications/api/notification.api";
+import { NOTIFICATION_PAGE_SIZE } from "@/features/notifications/utils/notification.normalize";
+import { Notification } from "@/features/notifications/types/notification.type";
 import NotificationCard from "@/features/notifications/components/NotificationCard";
 
 interface NotificationPageProps {

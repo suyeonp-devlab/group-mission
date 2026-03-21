@@ -1,4 +1,4 @@
-import { Notification, NotificationMeta } from "@/features/notifications/types/type";
+import { Notification, NotificationMeta } from "@/features/notifications/types/notification.type";
 
 export const MOCK_NOTIFICATIONS: Notification[] = [
   { id: "N001", type: "WELCOME", title: "환영해요", description: "[GROUP-MISSION]에서 작은 성취를 시작해보세요.", path: null, createdAt: "2026-03-16T09:00:00" },

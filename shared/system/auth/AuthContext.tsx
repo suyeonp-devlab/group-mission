@@ -1,8 +1,8 @@
 "use client";
 
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { User } from "@/features/auth/types/type";
-import { getLoginUserInfo, processLogin, processLogout } from "@/features/auth/api/api";
+import { User } from "@/features/auth/types/auth.type";
+import { getLoginUserInfo, processLogin, processLogout } from "@/features/auth/api/aut.api";
 import { hasCookie, LOGIN_COOKIE } from "@/shared/lib/cookie";
 
 type AuthContextValue = {

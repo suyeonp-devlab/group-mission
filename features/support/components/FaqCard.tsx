@@ -1,4 +1,4 @@
-import { Help } from "@/features/support/types/type";
+import { Help } from "@/features/support/types/support.type";
 import { useLayoutEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 

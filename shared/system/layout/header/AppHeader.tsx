@@ -4,7 +4,7 @@ import React from "react";
 import { useLayout } from "@/shared/system/layout/LayoutContext";
 import { Bell } from "lucide-react";
 import Link from "next/link";
-import { getNotificationMeta } from "@/features/notifications/api/api";
+import { getNotificationMeta } from "@/features/notifications/api/notification.api";
 
 export default function AppHeader() {
 

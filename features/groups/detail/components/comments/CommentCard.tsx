@@ -1,4 +1,4 @@
-import { CommunityComment } from "@/features/groups/detail/types/type";
+import { CommunityComment } from "@/features/groups/detail/types/groupDetail.type";
 import { useAuth } from "@/shared/system/auth/AuthContext";
 import { formatDate } from "@/shared/lib/date";
 import Image from "next/image";

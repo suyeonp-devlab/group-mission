@@ -1,5 +1,5 @@
-import { ChatSummary } from "@/features/chat/types/type";
-import { MOCK_CHATS } from "@/features/chat/api/mock";
+import { ChatSummary } from "@/features/chat/types/chat.type";
+import { MOCK_CHATS } from "@/features/chat/api/chat.mock";
 
 // TODO 서버 연동
 export const getChats = (): ChatSummary[] => {

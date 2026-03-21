@@ -1,5 +1,5 @@
 import { SortValue } from "@/shared/config/sort";
-import { Category } from "@/features/categories/types/type";
+import { Category } from "@/features/categories/types/category.type";
 
 export type GroupFrequency = "DAILY" | "WEEKLY" | "MONTHLY";
 export type GroupBadge = "ACTIVE" | "SUCCESS" | "TRENDING" | "CONSISTENT";

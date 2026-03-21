@@ -1,4 +1,4 @@
-import { GetGroupsRequest, NormalizedGetGroupsRequest } from "@/features/groups/list/types/type";
+import { GetGroupsRequest, NormalizedGetGroupsRequest } from "@/features/groups/list/types/group.type";
 
 export const GROUP_PAGE_SIZE = 10;
 

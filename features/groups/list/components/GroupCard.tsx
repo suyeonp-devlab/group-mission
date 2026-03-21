@@ -1,4 +1,4 @@
-import { Group, GROUP_BADGE_LABEL, GROUP_FREQUENCY_LABEL, GroupBadge } from "@/features/groups/list/types/type";
+import { Group, GROUP_BADGE_LABEL, GROUP_FREQUENCY_LABEL, GroupBadge } from "@/features/groups/list/types/group.type";
 import { Users } from "lucide-react";
 
 interface GroupCardProps {

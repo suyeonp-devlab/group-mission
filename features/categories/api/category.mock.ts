@@ -1,4 +1,4 @@
-import { Category } from "@/features/categories/types/type";
+import { Category } from "@/features/categories/types/category.type";
 
 export const MOCK_CATEGORIES: Category[] = [
   { id: "all", label: "전체", badges: [] },

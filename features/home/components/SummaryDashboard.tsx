@@ -1,8 +1,8 @@
 import SummaryStatusCard from "@/features/home/components/SummaryStatusCard";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { MISSION_STATUS_UI, MyGroupSummary } from "@/features/groups/my-groups/types/type";
-import { getSummaryStatus } from "@/features/groups/my-groups/utils/util";
+import { MISSION_STATUS_UI, MyGroupSummary } from "@/features/groups/my-groups/types/myGroup.type";
+import { getSummaryStatus } from "@/features/groups/my-groups/utils/myGroup.util";
 
 interface SummaryDashboardProps {
   summary: MyGroupSummary

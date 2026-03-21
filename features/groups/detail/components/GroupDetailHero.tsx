@@ -1,6 +1,6 @@
 "use client";
 
-import { Group, GROUP_FREQUENCY_LABEL } from "@/features/groups/list/types/type";
+import { Group, GROUP_FREQUENCY_LABEL } from "@/features/groups/list/types/group.type";
 import { Calendar, CalendarDays, Crown, Folder, Users } from "lucide-react";
 import { formatDate } from "@/shared/lib/date";
 

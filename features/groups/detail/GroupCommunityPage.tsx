@@ -1,6 +1,6 @@
 "use client";
 
-import { Community } from "@/features/groups/detail/types/type";
+import { Community } from "@/features/groups/detail/types/groupDetail.type";
 import CommunityDetail from "@/features/groups/detail/components/community/CommunityDetail";
 import { Heart, Sparkles } from "lucide-react";
 import CommentSection from "@/features/groups/detail/components/community/CommentSection";

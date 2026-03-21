@@ -1,4 +1,4 @@
-import { Help } from "@/features/support/types/type";
+import { Help } from "@/features/support/types/support.type";
 
 export const MOCK_NOTICES: Help[] = [
   { id: "H202603040010", title: "서비스 업데이트 안내", content: "그룹 상세 화면에서 미션 인증 내역을 조금 더 쉽게 확인할 수 있도록 UI를 개선했어요. 인증 기록 확인이 더 편리해졌어요.", isImportant: true, createdAt: "2026-03-04T14:32:10" },

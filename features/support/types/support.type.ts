@@ -1,4 +1,4 @@
-export type Type = "notice" | "faq";
+export type SupportType = "notice" | "faq";
 
 export interface Help {
   id: string;
@@ -9,12 +9,12 @@ export interface Help {
 }
 
 export interface GetHelpRequest {
-  tab?: Type;
+  tab?: SupportType;
   page?: number;
 }
 
 export interface NormalizedGetHelpRequest {
-  tab: Type;
+  tab: SupportType;
   page: number;
   pageSize: number;
 }

@@ -1,16 +1,16 @@
 "use client";
 
-import { GetHelpRequest, Help, Type } from "@/features/support/types/type";
+import { GetHelpRequest, Help, SupportType } from "@/features/support/types/support.type";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
-import { normalizeGetHelpRequest } from "@/features/support/utils/normalize";
-import { getHelps } from "@/features/support/api/api";
+import { normalizeGetHelpRequest } from "@/features/support/utils/support.normalize";
+import { getHelps } from "@/features/support/api/support.api";
 import SegmentedTab from "@/shared/ui/tab/SegmentedTab";
 import ScrollToTopButton from "@/shared/ui/button/ScrollToTopButton";
 import SupportExplorer from "@/features/support/components/SupportExplorer";
 
 interface SupportPageProps {
-  selectedTab: Type;
+  selectedTab: SupportType;
   helps: Help[];
   totalHelpCount: number;
 }

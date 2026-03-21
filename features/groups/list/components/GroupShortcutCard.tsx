@@ -1,4 +1,4 @@
-import { Group, GROUP_FREQUENCY_LABEL, GroupFrequency } from "@/features/groups/list/types/type";
+import { Group, GROUP_FREQUENCY_LABEL, GroupFrequency } from "@/features/groups/list/types/group.type";
 import Link from "next/link";
 import { Users } from "lucide-react";
 

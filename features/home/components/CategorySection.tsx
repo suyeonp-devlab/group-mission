@@ -1,4 +1,4 @@
-import { Category } from "@/features/categories/types/type";
+import { Category } from "@/features/categories/types/category.type";
 import CategoryShortcutCard from "@/features/categories/components/CategoryShortcutCard";
 
 interface CategorySectionProps {

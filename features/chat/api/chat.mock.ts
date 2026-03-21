@@ -1,4 +1,4 @@
-import { ChatSummary } from "@/features/chat/types/type";
+import { ChatSummary } from "@/features/chat/types/chat.type";
 
 export const MOCK_CHATS: ChatSummary[] = [
   { roomId: "G202603040001", roomTitle: "물 2L 마시기", memberCount: 6, lastMessage: "다들 오늘 미션 수행하셨나요??", lastMessageAt: "2026-03-15T02:05:10", lastMessageId: 10, unreadCount: 3 },

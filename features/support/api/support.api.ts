@@ -1,5 +1,5 @@
-import { MOCK_FAQS, MOCK_NOTICES } from "@/features/support/api/mock";
-import { GetHelpResponse, NormalizedGetHelpRequest } from "@/features/support/types/type";
+import { MOCK_FAQS, MOCK_NOTICES } from "@/features/support/api/support.mock";
+import { GetHelpResponse, NormalizedGetHelpRequest } from "@/features/support/types/support.type";
 
 // TODO 서버 연동 (무한스크롤)
 export const getHelps = (request: NormalizedGetHelpRequest): GetHelpResponse => {

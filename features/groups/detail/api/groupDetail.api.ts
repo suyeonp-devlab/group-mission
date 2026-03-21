@@ -1,10 +1,10 @@
-import { MOCK_GROUPS } from "@/features/groups/list/api/mock";
-import { MOCK_COMMUNITY, MOCK_MY_MEMBERSHIP } from "@/features/groups/detail/api/mock";
+import { MOCK_GROUPS } from "@/features/groups/list/api/group.mock";
+import { MOCK_COMMUNITY, MOCK_MY_MEMBERSHIP } from "@/features/groups/detail/api/groupDetail.mock";
 import {
   GetCommunitiesRequest,
   GetCommunitiesResponse,
   GetCommunityRequest
-} from "@/features/groups/detail/types/type";
+} from "@/features/groups/detail/types/groupDetail.type";
 
 // TODO 서버 연동
 export const getMyMembership = (id: string) => MOCK_MY_MEMBERSHIP;

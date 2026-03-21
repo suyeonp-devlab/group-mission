@@ -1,6 +1,6 @@
 import LayoutConfig from "@/shared/system/layout/LayoutConfig";
 import ChatPage from "@/features/chat/ChatPage";
-import { getChats } from "@/features/chat/api/api";
+import { getChats } from "@/features/chat/api/chat.api";
 import EmptyChatPage from "@/features/chat/EmptyChatPage";
 
 export default function Page(){

@@ -1,5 +1,5 @@
-import { MOCK_GROUPS } from "@/features/groups/list/api/mock";
-import { GetGroupsResponse, NormalizedGetGroupsRequest } from "@/features/groups/list/types/type";
+import { MOCK_GROUPS } from "@/features/groups/list/api/group.mock";
+import { GetGroupsResponse, NormalizedGetGroupsRequest } from "@/features/groups/list/types/group.type";
 
 // TODO 서버 연동 (무한스크롤)
 export const getGroups = (request: NormalizedGetGroupsRequest): GetGroupsResponse => {

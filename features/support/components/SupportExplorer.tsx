@@ -1,4 +1,4 @@
-import { Help, Type } from "@/features/support/types/type";
+import { Help, SupportType } from "@/features/support/types/support.type";
 import FaqCard from "@/features/support/components/FaqCard";
 import NoticeCard from "@/features/support/components/NoticeCard";
 import { useEffect, useRef } from "react";
@@ -7,7 +7,7 @@ interface SupportExplorerProps {
   helps: Help[];
   hasMore: boolean;
   onLoadMore: () => void;
-  selectedTab: Type;
+  selectedTab: SupportType;
 }
 
 export default function SupportExplorer({

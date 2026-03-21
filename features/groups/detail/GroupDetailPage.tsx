@@ -1,12 +1,12 @@
 "use client";
 
-import { Group } from "@/features/groups/list/types/type";
+import { Group } from "@/features/groups/list/types/group.type";
 import GroupDetailHero from "@/features/groups/detail/components/GroupDetailHero";
 import { useState } from "react";
 import SegmentedTab from "@/shared/ui/tab/SegmentedTab";
 import GroupLockedPanel from "@/features/groups/detail/components/GroupLockedPanel";
 import CommunitySection from "@/features/groups/detail/components/CommunitySection";
-import { MemberStatus } from "@/features/groups/detail/types/type";
+import { MemberStatus } from "@/features/groups/detail/types/groupDetail.type";
 import { useOverlay } from "@/shared/system/overlay/OverlayContext";
 import { useRouter } from "next/navigation";
 

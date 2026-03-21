@@ -1,5 +1,5 @@
-import { Category } from "@/features/categories/types/type";
-import { GroupFrequency } from "@/features/groups/list/types/type";
+import { Category } from "@/features/categories/types/category.type";
+import { GroupFrequency } from "@/features/groups/list/types/group.type";
 
 // Overall mission status for the user
 export type SummaryStatus = "NONE" | "ING" | "DONE";

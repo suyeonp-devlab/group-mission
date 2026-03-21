@@ -1,6 +1,6 @@
 "use client";
 
-import { ChatSummary } from "@/features/chat/types/type";
+import { ChatSummary } from "@/features/chat/types/chat.type";
 import ChatShortcutCard from "@/features/chat/components/ChatShortcutCard";
 
 interface ChatPageProps {

@@ -1,4 +1,4 @@
-import { Group } from "@/features/groups/list/types/type";
+import { Group } from "@/features/groups/list/types/group.type";
 import GroupShortcutCard from "@/features/groups/list/components/GroupShortcutCard";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
