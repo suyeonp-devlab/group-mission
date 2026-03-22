@@ -9,6 +9,7 @@ import CommunitySection from "@/features/groups/detail/components/CommunitySecti
 import { MemberStatus } from "@/features/groups/detail/types/groupDetail.type";
 import { useOverlay } from "@/shared/system/overlay/OverlayContext";
 import { useRouter } from "next/navigation";
+import HistorySection from "@/features/groups/detail/components/HistorySection";
 
 interface GroupDetailPageProps {
   group: Group;
@@ -57,7 +58,7 @@ export default function GroupDetailPage({
       {/* Content */}
       {!isMember && <GroupLockedPanel status={status} isEnd={isEnd} onClick={handleJoin} />}
       {isMember && selectedTab === "community" && <CommunitySection groupId={group.id} />}
-      {/*{isMember && selectedTab === "history" && <GroupHistory />}*/}
+      {isMember && selectedTab === "history" && <HistorySection />}
     </div>
   );
 }
